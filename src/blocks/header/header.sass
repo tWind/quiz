@@ -1,0 +1,62 @@
+.header
+  padding: 50px 50px 50px 50px
+  position: relative
+  z-index: 6
+  @include breakpoint($tablet-960)
+    padding: 24px 24px 24px 24px
+  &--black
+    @include breakpoint($tablet-960)
+  &__container
+    @include glass(100%)
+    padding-left: 0
+    padding-right: 0
+    display: flex
+    justify-content: space-between
+    align-items: center
+    @include breakpoint($tablet-960)
+  &__col
+    &--left
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      @include breakpoint($tablet-960)
+    &--right
+      @include breakpoint($tablet-960)
+  &__logo
+    margin: 0 20px 0 0
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    text-decoration: none
+    @include breakpoint($tablet-960)
+    &:after
+      content: ''
+      @include icon-ornament
+      @include breakpoint($tablet-960)
+        display: none
+      .header--black &
+        @include icon-ornament-black
+        @include breakpoint($tablet-960)
+          display: none
+  &__logo-text
+    font: 700 32px/1 $font-default
+    color: $color-white
+    text-transform: uppercase
+    margin: 0 20px 0 0
+    @include breakpoint($tablet-960)
+      font: 700 20px/1 $font-default
+    .header--black &
+      color: $color-black-2
+      @include breakpoint($tablet-960)
+  &__descr
+    font: 500 12px/1.2 $font-default
+    color: $color-white
+    text-transform: uppercase
+    @include breakpoint($tablet-960)
+      display: none
+    .header--black &
+      color: $color-black-2
+      @include breakpoint($tablet-960)
+  &__btn
+    @include btn-default-black
+    @include breakpoint($tablet-960)

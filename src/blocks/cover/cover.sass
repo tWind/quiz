@@ -1,0 +1,101 @@
+.cover
+  padding: 7.8125vw 0 6.5625vw 0
+  position: relative
+  z-index: 6
+  @include breakpoint($desktop-1920)
+    padding: 150px 0 120px 0
+  @include breakpoint($tablet-960)
+    padding: 36px 0 56px 0
+  &__container
+    @include glass(1200px)
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    @include breakpoint($mobile-640)
+      align-items: flex-start
+    @include breakpoint($mobile-640)
+      padding-left: 24px
+      padding-right: 24px
+  &__descr
+    display: none
+    width: 100%
+    max-width: 185px
+    font: 400 10px/1.5 $font-default
+    text-transform: uppercase
+    color: $color-white
+    margin: 0 0 12px
+    @include breakpoint($mobile-640)
+      display: flex
+      text-align: left
+  &__title
+    font: 700 60px/1.2 $font-default
+    @include fluid-type(375px, 960px, 32px, 60px)
+    color: $color-white
+    margin: 0 0 60px
+    text-align: center
+    @include breakpoint($mobile-640)
+      text-align: left
+      margin: 0 0 30px
+  &__list
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+    margin: 0 0 80px
+    width: 100%
+    max-width: 860px
+    @include breakpoint($tablet-960)
+    @include breakpoint($mobile-640)
+      flex-direction: column
+      justify-content: flex-start
+      margin: 0 0 44px
+  &__list-item
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 33.33%
+    position: relative
+    border-right: 1px solid $color-white
+    @include breakpoint($tablet-960)
+    @include breakpoint($mobile-640)
+      flex-direction: row
+      border-right: none
+      margin: 0 0 20px
+      padding: 0 0 20px
+      border-bottom: 1px solid $color-white
+      width: 100%
+    &:last-child
+      border-right: 0
+      @include breakpoint($tablet-960)
+      @include breakpoint($mobile-640)
+        border-bottom: none
+        margin: 0 0 0 0
+        padding: 0 0 0 0
+    &:before
+      content: ''
+      margin: 0 0 22px
+      @include breakpoint($tablet-960)
+      @include breakpoint($mobile-640)
+        margin: 0 24px 0 0
+    &--watch
+      &:before
+        @include icon-watch
+    &--shield
+      &:before
+        @include icon-shield
+    &--percent
+      &:before
+        @include icon-percent
+  &__list-item-text
+    font: 700 18px/1.2 $font-default
+    color: $color-white
+    text-align: center
+    @include breakpoint($tablet-960)
+    @include breakpoint($mobile-640)
+      font: 700 16px/1.2 $font-default
+      text-align: left
+  &__btn
+    @include btn-default
+    width: auto
+    @include breakpoint($tablet-960)

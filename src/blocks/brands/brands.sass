@@ -1,0 +1,140 @@
+.brands
+  position: relative
+  z-index: 6
+  padding: 0 0 120px
+  @include breakpoint($desktop-1920)
+  @include breakpoint($tablet-960)
+    padding: 0 0 34px
+  @include breakpoint($mobile-640)
+  &__container
+    @include glass(1200px)
+    display: flex
+    justify-content: flex-end
+    align-items: flex-start
+    flex-wrap: wrap
+    @include breakpoint($tablet-960)
+      justify-content: space-between
+    @include breakpoint($mobile-640)
+      justify-content: space-between
+    @include breakpoint($mobile-480)
+      justify-content: space-between
+  &__item
+    background: rgba($color-red,0.1)
+    border-radius: 50%
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    @include breakpoint($tablet-960)
+      margin: 0 0 30px
+    @include breakpoint($mobile-640)
+      margin: 0 0 16px 0
+    @include breakpoint($mobile-480)
+    &--zhik
+      width: 193px
+      height: 193px
+      @include breakpoint($tablet-960)
+        width: 28vw
+        height: 28vw
+      @include breakpoint($mobile-480)
+        width: 88px
+        height: 88px
+      &:before
+        content: ''
+        @include icon-zhik
+    &--meriton
+      width: 227px
+      height: 227px
+      @include breakpoint($tablet-960)
+        width: 28vw
+        height: 28vw
+      @include breakpoint($mobile-480)
+        width: 88px
+        height: 88px
+      &:before
+        content: ''
+        @include icon-meriton
+    &--darstroy
+      width: 268px
+      height: 268px
+      @include breakpoint($tablet-960)
+        width: 28vw
+        height: 28vw
+      @include breakpoint($mobile-480)
+        width: 88px
+        height: 88px
+      &:before
+        content: ''
+        @include icon-darstroy
+    &--insiti
+      width: 227px
+      height: 227px
+      @include breakpoint($tablet-960)
+        width: 28vw
+        height: 28vw
+      @include breakpoint($mobile-480)
+        width: 88px
+        height: 88px
+      &:before
+        content: ''
+        @include icon-insiti
+    &--granel
+      width: 227px
+      height: 227px
+      @include breakpoint($tablet-960)
+        width: 28vw
+        height: 28vw
+      @include breakpoint($mobile-480)
+        width: 88px
+        height: 88px
+      &:before
+        content: ''
+        @include icon-granel
+    &--dogma
+      width: 227px
+      height: 227px
+      @include breakpoint($tablet-960)
+        width: 28vw
+        height: 28vw
+      @include breakpoint($mobile-480)
+        width: 88px
+        height: 88px
+      &:before
+        content: ''
+        @include icon-dogma
+    &--pik
+      width: 268px
+      height: 268px
+      @include breakpoint($tablet-960)
+        width: 28vw
+        height: 28vw
+      @include breakpoint($mobile-480)
+        width: 88px
+        height: 88px
+      &:before
+        content: ''
+        @include icon-pik
+    &--a101
+      width: 227px
+      height: 227px
+      @include breakpoint($tablet-960)
+        width: 28vw
+        height: 28vw
+      @include breakpoint($mobile-480)
+        width: 88px
+        height: 88px
+      &:before
+        content: ''
+        @include icon-a101
+    &--ksm
+      width: 185px
+      height: 185px
+      @include breakpoint($tablet-960)
+        width: 28vw
+        height: 28vw
+      @include breakpoint($mobile-480)
+        width: 88px
+        height: 88px
+      &:before
+        content: ''
+        @include icon-ksm

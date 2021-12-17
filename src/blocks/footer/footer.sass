@@ -1,0 +1,57 @@
+.footer
+  position: relative
+  z-index: 6
+  padding: 0 30px 30px 30px
+  @include breakpoint($tablet-960)
+    padding: 0 16px 24px 16px
+  &__container
+    padding: 50px
+    background: $color-black-2
+    border-radius: 60px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    @include breakpoint($tablet-960)
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+      border-radius: 32px
+      padding: 50px 66px
+  &__copyright
+    font: 700 14px/1.1 $font-default
+    color: $color-white
+    @include breakpoint($tablet-960)
+      margin: 0 0 32px
+      color: $color-gray-4
+      order: 1
+  &__text-link
+    font: 700 14px/1.1 $font-default
+    color: $color-white
+    transition: opacity 0.2s ease
+    @include breakpoint($tablet-960)
+      margin: 0 0 50px
+      order: 3
+    &:hover
+      text-decoration: none
+  &__tel
+    font: 700 14px/1.1 $font-default
+    color: $color-white
+    text-decoration: none
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    transition: all 0.2s ease
+    @include breakpoint($tablet-960)
+      margin: 0 0 18px
+      order: 2
+    &:before
+      content: ''
+      @include icon-tel
+      margin: 0 16px 0 0
+      @include breakpoint($tablet-960)
+        margin: 0 10px 0 0
+  &__btn
+    @include btn-default-white
+    width: auto
+    @include breakpoint($tablet-960)
+      order: 4
