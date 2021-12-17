@@ -4,7 +4,7 @@
     margin: 36px 0 0 0
   &__container
     @include glass(1800px)
-    padding: 0 3.62844702467344% 80px 3.62844702467344%
+    padding: 0 2.178% 80px 2.178%
     @include breakpoint($desktop-large)
       padding: 0 50px 80px 50px
     @include breakpoint($tablet-960)
@@ -98,9 +98,12 @@
     display: flex
     margin: 0 2.4% 2.4% 0
     padding: 0 2.4% 2.4% 0
-    width: 31.7%
+    width: 32.6%
     position: relative
-    @include breakpoint($desktop-1200)
+    @include breakpoint($desktop-1440-1920)
+      margin: 0 1.57% 1.57% 0
+      padding: 0 1.57% 1.57% 0
+    @include breakpoint($desktop-1440)
       width: 48.7%
       padding: 0 0 0 0
       margin: 0 2.6% 2.6% 0
@@ -120,7 +123,7 @@
       position: absolute
       right: 0
       top: 0
-      @include breakpoint($desktop-1200)
+      @include breakpoint($desktop-1440)
         display: none
       @include breakpoint($tablet-960)
         display: none
@@ -134,7 +137,7 @@
       position: absolute
       bottom: 0
       right: 0
-      @include breakpoint($desktop-1200)
+      @include breakpoint($desktop-1440)
         display: none
       @include breakpoint($tablet-960)
         display: none
@@ -142,7 +145,11 @@
     &:nth-child(3n+3)
       padding-right: 0
       margin-right: 0
-      @include breakpoint($desktop-1200)
+      @include breakpoint($desktop-1920)
+        width: 31.6%
+      @include breakpoint($desktop-1440-1920)
+        width: 31.6%
+      @include breakpoint($desktop-1440)
         margin-right: 2.6%
       @include breakpoint($tablet-960)
         margin-right: 0
@@ -152,39 +159,39 @@
     &:nth-last-child(1)
       &:before
         height: calc(100% - 15px)
-        @include breakpoint($desktop-1400)
+        @include breakpoint($desktop-1440)
           display: none
       &:after
         display: none
-        @include breakpoint($desktop-1400)
+        @include breakpoint($desktop-1440)
           display: none
     &:nth-last-child(2)
       &:before
         height: calc(100% - 15px)
-        @include breakpoint($desktop-1200)
+        @include breakpoint($desktop-1440)
           display: none
       &:after
         display: none
-        @include breakpoint($desktop-1200)
+        @include breakpoint($desktop-1440)
           display: none
     &:nth-last-child(3)
       &:before
         height: calc(100% - 15px)
-        @include breakpoint($desktop-1200)
+        @include breakpoint($desktop-1440)
           display: none
       &:after
         display: none
-        @include breakpoint($desktop-1200)
+        @include breakpoint($desktop-1440)
           display: none
     &:nth-child(2n+2)
-      @include breakpoint($desktop-1200)
+      @include breakpoint($desktop-1440)
         margin-right: 0
         padding-right: 0
       &:before
-        @include breakpoint($desktop-1200)
+        @include breakpoint($desktop-1440)
           display: none
       &:after
-        @include breakpoint($desktop-1200)
+        @include breakpoint($desktop-1440)
           display: none
   &__list-item-container
     position: relative
@@ -197,6 +204,8 @@
     justify-content: space-between
     align-items: flex-start
     width: 100%
+    @include breakpoint($desktop-1440-1920)
+      padding: 16px 16px 16px 16px
     @include breakpoint($tablet-960)
       padding: 16px 16px 16px 16px
       height: 430px
@@ -248,6 +257,9 @@
     border-radius: 16px
     margin: auto 0 0 0
     width: 100%
+    @include breakpoint($desktop-1440-1920)
+      //padding: 20px 20px 20px 20px
+      padding: 5% 5% 5% 5%
     @include breakpoint($tablet-960)
       padding: 15px 16px 16px 16px
     @include breakpoint($mobile-480)
@@ -357,7 +369,11 @@
   &__list-item-content-address
     display: flex
     justify-content: flex-start
-    align-items: flex-start
+    align-items: center
+    margin: 0 10px 0 0
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
     @include breakpoint($tablet-960)
       margin: 0 0 32px
     @include breakpoint($mobile-640)
@@ -368,6 +384,11 @@
     padding: 0 0 0 13px
     position: relative
     margin: 0 10px 0 0
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap
+    //@include breakpoint($desktop-1440-1919)
+    //  width: 73%
     @include breakpoint($tablet-960)
       margin: 0 8px 0 0
       padding: 0 0 0 10px
@@ -390,13 +411,14 @@
         transform: translate3d(0, calc(-50% - 2px), 0)
       @include breakpoint($mobile-640)
   &__list-item-content-address-time
-    font: 400 12px/1.2 $font-default
+    font: 400 12px/1 $font-default
     color: $color-gray-2
     text-decoration: none
     padding: 0 0 0 14px
     position: relative
+    white-space: nowrap
     @include breakpoint($tablet-960)
-      font: 400 11px/1.2 $font-default
+      font: 400 11px/1 $font-default
     @include breakpoint($mobile-640)
     &:before
       content: ''
