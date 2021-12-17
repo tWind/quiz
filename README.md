@@ -24,7 +24,7 @@
 
 Далее, используя ```cmd``` в Windows или Терминал Linux/macOS, проделайте следующие шаги:
 
-* Скачать сборку: ```git clone https://github.com/front-end-with-love/promonado-template```;
+* Скачать сборку: ```git clone git@git.dev.southmedia.ru:miha/quiz-granel-layout.git```;
 * Ставим утилиту глобально ```$ npm install gulpjs/gulp-cli -g```;
 * Устанавливаем ```Gulp 4``` в папку с проектом ```$ npm install gulp --save-dev```;
 * Проверка версии gulp и чтобы убедиться, что все корректно установлено: ```gulp -
