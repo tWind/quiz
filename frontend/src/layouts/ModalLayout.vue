@@ -18,34 +18,7 @@
         </div>
       </div>
       <div class="popup__content">
-        <div class="popup__text-wrapper">
-          <div class="popup__subtitle">Вопрос 1</div>
-          <div class="popup__title">Какие планировки вас интересуют?</div>
-        </div>
-        <form class="popup__form">
-          <label class="popup__form-label" for="one">
-            <input class="popup__form-input-checkbox" type="checkbox" name="one" id="one">
-            <div class="popup__form-btn">Однокомнатные и евродвушки</div>
-          </label>
-          <label class="popup__form-label" for="two">
-            <input class="popup__form-input-checkbox" type="checkbox" name="two" id="two">
-            <div class="popup__form-btn">Двухкомнатные</div>
-          </label>
-          <label class="popup__form-label popup__form-label--active" for="three">
-            <input class="popup__form-input-checkbox" type="checkbox" name="three" id="three" checked>
-            <div class="popup__form-btn">Трехкомнатные</div>
-          </label>
-          <label class="popup__form-label" for="four">
-            <input class="popup__form-input-checkbox" type="checkbox" name="four" id="four">
-            <div class="popup__form-btn">Четырехкомнатные</div>
-          </label>
-        </form>
-        <div class="popup__nav">
-          <div class="popup__nav-item popup__nav-item--prev popup__nav-item--disable" href="#">
-            <div class="popup__nav-item-text">Назад</div>
-          </div><a class="popup__nav-item popup__nav-item--next" href="#" data-btn-popup="feedbackform">
-            <div class="popup__nav-item-text">Вперед</div></a>
-        </div>
+        <slot></slot>
       </div>
     </div>
   </div>
@@ -62,7 +35,7 @@ export default {
 
 .modal-layout {
   padding: 30px;
-  background-image: url('/assets/images/bg.webp');
+  background-image: url('~@/assets/images/bg.webp');
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,7 +46,7 @@ export default {
   }
   
   @include breakpoint($mobile-640) {
-    background-image: url('/assets/images/bg-mobile.webp');
+    background-image: url('~@/assets/images/bg-mobile.webp');
   }
 }
 </style>
