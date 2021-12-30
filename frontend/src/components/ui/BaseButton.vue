@@ -1,6 +1,6 @@
 <template>
   <button class="base-button" :disabled="disabled"
-          @click="callback($event)">
+          @click.prevent="callback($event)">
     <slot></slot>
   </button>
 </template>
@@ -92,6 +92,34 @@ export default {
     
     @include breakpoint($tablet-960) {
       font-size: 12px;
+    }
+  }
+
+  &--answer {
+    padding: 0 31px 0;
+    background: $color-white;
+    border: 1px solid $color-white;
+    border-radius: 60px;
+    font: 400 16px/70px $font-default;
+    color: $color-black-2;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    @include breakpoint($desktop-large) {
+      line-height: 90px;
+    }
+      
+    @include breakpoint($tablet-960) {
+      padding: 0 21px 0;
+      font: 400 14px/50px $font-default;
+    }
+
+    &:hover {
+      border: 1px solid $color-black-2;
+      background: $color-black-2;
+      color: $color-white;
     }
   }
 

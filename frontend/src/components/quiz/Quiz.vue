@@ -1,0 +1,139 @@
+<template>
+  <div class="quiz">
+    <div v-if="currentVariant" class="quiz__main">
+      <div class="popup__text-wrapper">
+        <div class="popup__subtitle">Вопрос {{ questionCount }}</div>
+        <div class="popup__title">{{ currentVariant.TITLE }}</div>
+      </div>
+
+      <form class="quiz__form">
+        <quiz-answer class="quiz__form-item"
+          v-for="answer in currentVariant.ANSWERS" :key="answer.index"
+          :answer="answer"
+          @quiz-select-variant="selectCallback"
+        />
+      </form>
+
+      <!-- навигация пока не отображается, так как при выборе ответа мы сразу показываем следующий вопрос -->
+      <div class="popup__nav" v-if="0">
+        <div class="popup__nav-item popup__nav-item--prev popup__nav-item--disable" href="#">
+          <div class="popup__nav-item-text">Назад</div>
+        </div>
+        <a class="popup__nav-item popup__nav-item--next" href="#" data-btn-popup="feedbackform">
+          <div class="popup__nav-item-text">Вперед</div>
+        </a>
+      </div>
+    </div>
+
+    <div v-else class="quiz__feedback" >
+      <div class="popup__text-wrapper">
+        <div class="popup__subtitle">Оставьте заявку</div>
+        <div class="popup__title">Мы&nbsp;нашли квартиры, которые вам подходят</div>
+        <div class="popup__descr">Укажите ваш личный номер телефона&nbsp;&mdash; на&nbsp;него вы&nbsp;получите подборку квартир</div>
+      </div>
+      <form class="popup__form">
+        <div class="popup__form-row">
+          <input v-model="userRequestInfo.phone" class="popup__input-text popup__input-text--tel" type="text" value="" placeholder="+7 (___)___-__-__">
+        </div>
+        <div class="popup__form-row">
+          <base-button @click="sendCompilationRequest">Получить подборку</base-button>
+          <div class="popup__form-descr">Отправляя заявку вы&nbsp;соглашаетесь с&nbsp;условиями политики конфеденциальности</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapActions, mapGetters } from 'vuex';
+
+import BaseButton from '@/components/ui/BaseButton.vue';
+import QuizAnswer from './QuizAnswer.vue';
+
+export default {
+  name: 'Quiz',
+  data() {
+    return {
+      items: [],
+      currentVariant: {},
+      questionCount: 1,
+      userRequestInfo: {
+        phone: '',
+        questions: [],
+        tags: '',
+      },
+    }
+  },
+  computed: {
+    ...mapGetters('quiz', ['getVariants']),
+  },
+  methods: {
+    ...mapActions('quiz', ['loadSelectionLead']),
+    selectCallback(answer) {
+      let question = {};
+      question[this.currentVariant.TITLE] = answer.result;
+
+      this.userRequestInfo.questions.push(question);
+      
+      if(this.userRequestInfo.tags.length) {
+        this.userRequestInfo.tags = this.userRequestInfo.tags.concat(`, ${ answer.id }`);
+      } else {
+        this.userRequestInfo.tags = `${ answer.id }`;
+      }
+      
+      
+      console.log(this.userRequestInfo);
+      if(answer.code) {
+        this.questionCount += 1;
+
+        this.currentVariant = this.variants.find((variant) => {
+          return variant.CODE === answer.code;
+        });
+      } else {
+        this.currentVariant = null;
+      }
+    },
+    sendCompilationRequest() {
+      console.log(this.userRequestInfo);
+      this.loadSelectionLead(this.userRequestInfo);
+      this.$router.push({ name: 'thanks' });
+    },
+  },
+  mounted() {
+    this.variants = this.getVariants;
+    this.currentVariant = this.variants[0];
+  },
+  components: {
+    QuizAnswer,
+    BaseButton,
+  }
+};
+</script>
+
+<style lang="scss">
+@import '~breakpoint-sass';
+
+.quiz__form {
+  width: 100%;
+  max-width: 632px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0 auto 50px;
+
+  @include breakpoint($desktop-large) {
+    margin: 0 0 154px;
+  }
+      
+  @include breakpoint($tablet-960) {
+    max-width: 100%
+  }
+}
+
+.quiz__form-item {
+  flex-basis: calc(50% - 1rem);
+  flex-shrink: 0;
+  margin: 0 .5rem .5rem;
+}
+</style>

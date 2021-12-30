@@ -9,7 +9,11 @@
     <slot></slot>
     
     <app-footer />
-    <modal name="modal-quest">
+    <modal name="modal-quest"
+      :width="`90%`"
+      :height="`auto`"
+      :scrollable="true"
+    >
       <modal-quest />
     </modal>
   </div>
