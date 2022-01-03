@@ -54,10 +54,10 @@ export default {
     }
   },
   created() {
-    this.loadQuestions();
+    this.loadAppInfo();
   },
   methods: {
-    ...mapActions('quiz', ['loadQuestions']),
+    ...mapActions('quiz', ['loadAppInfo']),
     showModal(modal) {
       this.$root.$emit('layout:showModal', modal);
     },
