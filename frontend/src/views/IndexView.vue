@@ -27,8 +27,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 import BaseLayout from '@/layouts/BaseLayout';
 import Brands from '@/components/ui/Brands.vue';
 import Info from '@/components/ui/Info.vue';
@@ -53,11 +51,7 @@ export default {
       counters: COUNTERS,
     }
   },
-  created() {
-    this.loadAppInfo();
-  },
   methods: {
-    ...mapActions('quiz', ['loadAppInfo']),
     showModal(modal) {
       this.$root.$emit('layout:showModal', modal);
     },

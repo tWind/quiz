@@ -6,9 +6,7 @@ export default {
   state: {
     info: {},
     variants: [],
-    text: {
-
-    }
+    text: {},
   },
   mutations: {
     setVariants(state, payload) {
