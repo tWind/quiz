@@ -1,9 +1,7 @@
 <template>
   <div class="cover">
     <div class="cover__container">
-      <div class="cover__descr">Сервис подбора новостроек от&nbsp;девелоперов</div>
-
-      <h1 class="cover__title">Бесплатно подберем квартиру в&nbsp;Москве и&nbsp;МО от&nbsp;3,5 млн&nbsp;₽</h1>
+      <h1 class="cover__title">{{ appText.header.main }}</h1>
 
       <div class="cover__list">
         <div class="cover__list-item cover__list-item--watch">
@@ -19,16 +17,21 @@
         </div>
       </div>
 
-      <base-button class="base-button--decor" @click="showModal('modal-quest')">подобрать квартиру</base-button>
+      <base-button class="base-button--decor" @click="showModal('modal-quest')">{{ appText.button.start }}</base-button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import BaseButton from '@/components/ui/BaseButton.vue';
 
 export default {
   name: 'Cover',
+  computed: {
+    ...mapGetters('quiz', ['appText']),
+  },
   methods: {
     showModal(modal) {
       this.$root.$emit('layout:showModal', modal);
