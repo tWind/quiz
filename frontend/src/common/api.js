@@ -6,7 +6,11 @@ class API {
   }
 
   get(path, params) {
-    return this.service.get(path, {params});
+    return this.service.get(path, { params });
+  }
+
+  post(path, params) {
+    return this.service.post(path, { params });
   }
 }
 

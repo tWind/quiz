@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
+import guards from './guards';
+
 import IndexView from '@/views/IndexView';
 import ThanksView from '@/views/ThanksView';
 
@@ -13,6 +15,7 @@ const router = new Router({
       path: '/',
       name: 'index',
       component: IndexView,
+      beforeEnter: (to, from, next) => guards.loadMainData(to, from, next),
     },
     {
       path: '/thanks',
