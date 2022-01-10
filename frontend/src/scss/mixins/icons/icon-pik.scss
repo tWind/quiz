@@ -1,0 +1,22 @@
+@mixin icon-pik {
+  @include icon;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='154' height='46' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 46V0h46.002v46H32.725V11.408H13.277V46H0Zm85.212-26.62L63.972 46H52.176V0h13.277v26.62L86.693 0H98.49v46H85.212V19.38Zm32.725 8.096V46h-13.273V0h13.276v19.076L133.808 0h15.498l-18.895 22.324L154 46h-17.846L117.94 27.476h-.003Z' fill='%232C2F32'/%3E%3C/svg%3E");
+  width: 154px;
+  min-width: 154px;
+  height: 46px;
+  min-height: 46px;
+
+  @include breakpoint($tablet-960) {
+    width: calc(59px * 1.6);
+    min-width: calc(59px * 1.6);
+    height: calc(17px * 1.6);
+    min-height: calc(17px * 1.6);
+  }
+  @include breakpoint($mobile-640) {
+    width: 59px;
+    min-width: 59px;
+    height: 17px;
+    min-height: 17px;
+  }
+}

@@ -86,7 +86,7 @@ export default {
 
       const options = Object.assign(settings, params, store.getters.getInfo);
 
-      const response = await api.get(constants.API_COMPILATION_URL, options);
+      const response = await api.post(constants.API_COMPILATION_URL, options);
       console.log(response);
     }
   },
