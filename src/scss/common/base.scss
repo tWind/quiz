@@ -1,0 +1,56 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-color: $color-white;
+  overflow-x: hidden;
+}
+
+.body--bg {
+  background-image: url('#{$images-path}/bg.webp');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  @include breakpoint($mobile-640) {
+    background-image: url('#{$images-path}/bg-mobile.webp');
+  }
+}
+
+.bg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.bg__noise {
+  z-index: 1;
+  width: 100%;
+  height: calc(100vh + 30px);
+  background: url("#{$images-path}/noise.gif") center center repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+    
