@@ -8,6 +8,7 @@ export default {
     variants: [],
     text: {},
     compilation: [],
+    socketChannelId: '',
   },
   mutations: {
     setVariants(state, payload) {
@@ -21,6 +22,9 @@ export default {
     },
     setCompilation(state, payload) {
       state.compilation = payload;
+    },
+    setSocketChannelId(state, payload) {
+      state.socketChannelId = payload;
     },
   },
   actions: {
@@ -90,6 +94,9 @@ export default {
       console.log(response.data.data.compilation);
 
       store.commit('setCompilation', response.data.data.compilation);
+      store.commit('setSocketChannelId', response.data.data.socket_ch);
+
+      debugger; // eslint-disable-line
     }
   },
   getters: {
@@ -105,5 +112,8 @@ export default {
     objectsCompilation(state) {
       return state.compilation;
     },
+    socketChannel(state) {
+      return state.socketChannel;
+    }
   },
 };
