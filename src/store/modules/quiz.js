@@ -7,6 +7,7 @@ export default {
     info: {},
     variants: [],
     text: {},
+    compilation: [],
   },
   mutations: {
     setVariants(state, payload) {
@@ -17,7 +18,10 @@ export default {
     },
     setText(state, payload) {
       state.text = payload;
-    }
+    },
+    setCompilation(state, payload) {
+      state.compilation = payload;
+    },
   },
   actions: {
     async loadAppInfo(store, params) {
@@ -70,9 +74,8 @@ export default {
 
       const info = {
         'quiz-id': baseSettings.QUIZ_ID,
-        'utm': baseSettings.UTM_CODE,
+        'utm-code': baseSettings.UTM_CODE,
         'city-id': baseSettings.CITY_ID,
-        'district-ids': baseSettings.DISTRICT_IDS,
       }
   
       store.commit('setVariants', quizSettings);
@@ -80,14 +83,13 @@ export default {
       store.commit('setText', text);
     },
     async loadSelectionLead(store, params) {
-      const settings = {
-        'privacy': 'privacy',
-      }
+      const options = Object.assign(params, store.getters.getInfo);
 
-      const options = Object.assign(settings, params, store.getters.getInfo);
+      const response = await api.get(constants.API_COMPILATION_URL, options);
 
-      const response = await api.post(constants.API_COMPILATION_URL, options);
-      console.log(response);
+      console.log(response.data.data.compilation);
+
+      store.commit('setCompilation', response.data.data.compilation);
     }
   },
   getters: {
@@ -99,6 +101,9 @@ export default {
     },
     appText(state) {
       return state.text;
-    }
+    },
+    objectsCompilation(state) {
+      return state.compilation;
+    },
   },
 };
