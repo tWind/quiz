@@ -1,0 +1,34 @@
+stages:
+  - build-frontend
+  - upload-master
+
+build-frontend:
+  stage: build-frontend
+  cache:
+    key: cache-for-my-task-${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules
+  script:
+    - echo "Сборка front-end запущена..."
+    - npm config set registry https://registry.npmjs.org/
+    - npm i
+    - npm run build
+    - echo "Сборка front-end завершена!"
+    - echo "Выгрузка front-end на продакшн запущена..."
+    - rsync --exclude '.git' --exclude '/bitrix/*' --exclude '.gitlab-ci.yml' -avz . $HOST_USER@$HOST_ADDR:$HOST_DIR
+    - echo "Выгрузка front-end на продакшн завершена!"
+  environment:
+    name: Production
+  only:
+    - master
+
+upload-master:
+  stage: upload-master
+  script:
+    - echo "Выгрузка на продакшн запущена..."
+    - rsync --exclude '.git' --exclude '/bitrix/*' --exclude '.gitlab-ci.yml' -avz . $HOST_USER@$HOST_ADDR:$HOST_DIR
+    - echo "Выгрузка на продакшн завершена!"
+  environment:
+    name: Production
+  only:
+    - master
