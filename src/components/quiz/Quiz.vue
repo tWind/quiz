@@ -59,7 +59,7 @@ export default {
       questionCount: 1,
       userRequestInfo: {
         phone: '',
-        questions: [],
+        log: '',
         tags: '',
       },
     }
@@ -70,16 +70,15 @@ export default {
   methods: {
     ...mapActions('quiz', ['loadSelectionLead']),
     selectCallback(answer) {
-      let question = {};
-      question[this.currentVariant.TITLE] = answer.result;
-
-      this.userRequestInfo.questions.push(question);
+      // собираем анкету в строку для запроса
+      this.userRequestInfo.log = (this.userRequestInfo.log.length)
+        ? this.userRequestInfo.log.concat(`<br> ${ this.currentVariant.TITLE }: ${ answer.result }`)
+        : `${ this.currentVariant.TITLE }: ${ answer.result }`;
       
-      if(this.userRequestInfo.tags.length) {
-        this.userRequestInfo.tags = this.userRequestInfo.tags.concat(`, ${ answer.id }`);
-      } else {
-        this.userRequestInfo.tags = `${ answer.id }`;
-      }
+      // собираем теги в строку для отправки запроса
+      this.userRequestInfo.tags = (this.userRequestInfo.tags.length)
+        ? this.userRequestInfo.tags.concat(`, ${ answer.id }`)
+        :this.userRequestInfo.tags = `${ answer.id }`;
       
       
       console.log(this.userRequestInfo);
