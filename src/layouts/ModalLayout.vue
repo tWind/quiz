@@ -1,12 +1,9 @@
 <template>
   <div class="modal-layout">
     <div class="bg">
-      <!--.bg__list-->
-      <!--  .bg__item.bg__item--first-->
-      <!--  .bg__item.bg__item--second-->
-      <!--  .bg__item.bg__item--third-->
       <div class="bg__noise"></div>
     </div>
+
     <div class="popup__container">
       <div class="popup__header">
         <div class="popup__header-col popup__header-col--left"><a class="popup__header-logo" href="/">
@@ -14,7 +11,7 @@
           <div class="popup__header-descr">Сервис подбора новостроек от&nbsp;девелоперов</div>
         </div>
         <div class="popup__header-col popup__header-col--right">
-          <div class="popup__close"></div>
+          <div class="popup__close" @click="closeModal()"></div>
         </div>
       </div>
       <div class="popup__content">
@@ -27,6 +24,11 @@
 <script>
 export default {
   name: 'ModalLayout',
+  methods: {
+    closeModal() {
+      this.$root.$emit('layout:closeModal');
+    },
+  },
 }
 </script>
 

@@ -7,6 +7,7 @@ export default {
     info: {},
     variants: [],
     text: {},
+    requestInfo: null,
     compilation: [],
     socketChannelId: '',
   },
@@ -26,6 +27,9 @@ export default {
     setSocketChannelId(state, payload) {
       state.socketChannelId = payload;
     },
+    setRequestInfo(state, payload) {
+      state.requestInfo = payload;
+    }
   },
   actions: {
     async loadAppInfo(store, params) {
@@ -86,8 +90,8 @@ export default {
       store.commit('setInfo', info);
       store.commit('setText', text);
     },
-    async loadSelectionLead(store, params) {
-      const options = Object.assign(params, store.getters.getInfo);
+    async loadSelectionLead(store) {
+      const options = Object.assign(store.state.requestInfo, store.getters.getInfo);
 
       const response = await api.get(constants.API_COMPILATION_URL, options);
 
@@ -95,8 +99,6 @@ export default {
 
       store.commit('setCompilation', response.data.data.compilation);
       store.commit('setSocketChannelId', response.data.data.socket_ch);
-
-      debugger; // eslint-disable-line
     }
   },
   getters: {
@@ -113,7 +115,7 @@ export default {
       return state.compilation;
     },
     socketChannel(state) {
-      return state.socketChannel;
+      return state.socketChannelId;
     }
   },
 };

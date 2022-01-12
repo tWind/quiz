@@ -10,7 +10,13 @@
             <span class="list-of-apartments__list-header-text list-of-apartments__list-header-text--mobile">Кв./аппарт.:</span>
             <span class="list-of-apartments__list-header-text list-of-apartments__list-header-text--red">{{ objectsCompilation.length }} варианта</span>
           </div>
-          <div class="list-of-apartments__list-header-col list-of-apartments__list-header-col--right"><a class="list-of-apartments__list-header-link" href="#"><span class="list-of-apartments__list-header-link-text">Скачать подборку в PDF</span></a></div>
+          
+          <div class="list-of-apartments__list-header-col list-of-apartments__list-header-col--right">
+            <!--  подборки в PDF временно нет, ссылка отключена -->
+            <a v-if="0" class="list-of-apartments__list-header-link" href="#">
+              <span class="list-of-apartments__list-header-link-text">Скачать подборку в PDF</span>
+            </a>
+          </div>
         </div>
         <div class="list-of-apartments__list-content">
           <apartments-list-item
@@ -42,8 +48,8 @@ export default {
       console.log(`this method was fired by the socket server ${data}`)
     },
     'changed-compilation': function(data) {
-            console.log(data);
-    }
+      console.log(data);
+    },
   },
   mounted() {
     this.$socket.emit('join', this.socketChannel);
@@ -58,5 +64,7 @@ export default {
 @import '~breakpoint-sass';
 @import '~@/scss/mixins/core';
 
-
+.list-of-apartments {
+  margin: 50px 0 0;
+}
 </style>
