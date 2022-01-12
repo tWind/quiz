@@ -15,13 +15,13 @@
       </form>
 
       <!-- навигация пока не отображается, так как при выборе ответа мы сразу показываем следующий вопрос -->
-      <div class="popup__nav" v-if="0">
-        <div class="popup__nav-item popup__nav-item--prev popup__nav-item--disable" href="#">
+      <div class="popup__nav">
+        <div class="popup__nav-item popup__nav-item--prev"
+          :class="{ 'popup__nav-item--disable': navDisabled }"
+          @click="prevButtonClick()"
+        >
           <div class="popup__nav-item-text">Назад</div>
         </div>
-        <a class="popup__nav-item popup__nav-item--next" href="#" data-btn-popup="feedbackform">
-          <div class="popup__nav-item-text">Вперед</div>
-        </a>
       </div>
     </div>
 
@@ -45,22 +45,23 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 
-import BaseButton from '@/components/ui/BaseButton.vue';
-import QuizAnswer from './QuizAnswer.vue';
+import BaseButton from '@/components/ui/BaseButton';
+import QuizAnswer from './QuizAnswer';
 
 export default {
   name: 'Quiz',
   data() {
     return {
+      navDisabled: true,
       items: [],
       currentVariant: {},
       questionCount: 1,
       userRequestInfo: {
         phone: '',
-        log: '',
-        tags: '',
+        log: [],
+        tags: [],
       },
     }
   },
@@ -69,19 +70,14 @@ export default {
   },
   methods: {
     ...mapActions('quiz', ['loadSelectionLead']),
+    ...mapMutations('quiz', ['setRequestInfo']),
     selectCallback(answer) {
-      // собираем анкету в строку для запроса
-      this.userRequestInfo.log = (this.userRequestInfo.log.length)
-        ? this.userRequestInfo.log.concat(`<br> ${ this.currentVariant.TITLE }: ${ answer.result }`)
-        : `${ this.currentVariant.TITLE }: ${ answer.result }`;
-      
-      // собираем теги в строку для отправки запроса
-      this.userRequestInfo.tags = (this.userRequestInfo.tags.length)
-        ? this.userRequestInfo.tags.concat(`, ${ answer.id }`)
-        :this.userRequestInfo.tags = `${ answer.id }`;
-      
+      this.userRequestInfo.tags.push(`${ answer.id }`);
+      this.userRequestInfo.log.push(`${ this.currentVariant.TITLE }: ${ answer.result }`);
+      this.navDisabled = false;
       
       console.log(this.userRequestInfo);
+
       if(answer.code) {
         this.questionCount += 1;
 
@@ -91,12 +87,35 @@ export default {
       } else {
         this.currentVariant = null;
       }
+
+      this.checkNavigationAbility();
     },
     sendCompilationRequest() {
+      // собираем теги и ответы в строки - необходимый формат для запроса
+      this.userRequestInfo.tags = this.userRequestInfo.tags.join(',');
+      this.userRequestInfo.log = this.userRequestInfo.log.join('<br>');
+
       console.log(this.userRequestInfo);
-      this.loadSelectionLead(this.userRequestInfo);
+
+      this.setRequestInfo(this.userRequestInfo);
+
       this.$router.push({ name: 'thanks' });
     },
+    prevButtonClick() {
+      if(this.navDisabled) return;
+      
+      this.questionCount -= 1;
+      this.userRequestInfo.tags.pop();
+      this.userRequestInfo.log.pop();
+      this.currentVariant = this.variants[this.questionCount - 1];
+
+      this.checkNavigationAbility();
+    },
+    checkNavigationAbility() {
+      this.navDisabled = (!this.currentVariant || this.questionCount === 1)
+        ? true
+        : false;
+    }
   },
   mounted() {
     this.variants = this.getVariants;

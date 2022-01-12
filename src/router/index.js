@@ -21,6 +21,7 @@ const router = new Router({
       path: '/thanks',
       name: 'thanks',
       component: ThanksView,
+      beforeEnter: (to, from, next) => guards.loadPageData(to, from, next),
     },
   ],
 });

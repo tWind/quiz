@@ -2,6 +2,10 @@
   <div class="index">
     <base-layout>
       <section class="section">
+        <cover />
+      </section>
+      
+      <section class="section">
         <info class="info--numbers" :title="`Проверяем все новостройки`">
           <p class="info__descr">Из&nbsp;нашей базы удаляются новостройки, которые затягивают сроки строительства, имеют плохие отзывы жильцов или прецеденты обмана при заключении договора. Такие объекты не&nbsp;попадут к&nbsp;вам в&nbsp;подборку.</p>
 
@@ -28,6 +32,7 @@
 
 <script>
 import BaseLayout from '@/layouts/BaseLayout';
+import Cover from '@/components/ui/Cover.vue';
 import Brands from '@/components/ui/Brands.vue';
 import Info from '@/components/ui/Info.vue';
 import Counter from '@/components/ui/Counter.vue';
@@ -58,6 +63,7 @@ export default {
   },
   components: {
     BaseLayout,
+    Cover,
     Brands,
     Info,
     Counter,

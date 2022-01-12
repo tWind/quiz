@@ -2,13 +2,11 @@
   <a class="list-of-apartments__list-item" href="#">
     <div class="list-of-apartments__list-item-container">
       <div class="list-of-apartments__list-item-tags">
-        <div class="list-of-apartments__list-item-tag list-of-apartments__list-item-tag--people">
-          <div class="list-of-apartments__list-item-tag-text">Семейная ипотека</div>
-        </div>
-        <div class="list-of-apartments__list-item-tag list-of-apartments__list-item-tag--star">
-          <div class="list-of-apartments__list-item-tag-text">Военная ипотека</div>
+        <div v-for="tag in item.tags" :key="tag.index" class="list-of-apartments__list-item-tag">
+          <div class="list-of-apartments__list-item-tag-text">{{ tag }}</div>
         </div>
       </div>
+
       <div class="list-of-apartments__list-item-content list-of-apartments__list-item-content--desktop">
         <div class="list-of-apartments__list-item-content-row">
           <div class="list-of-apartments__list-item-subtitle">{{ item.title }}</div>
