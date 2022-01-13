@@ -28,6 +28,7 @@ export default {
 
 .popup__text-wrapper {
   margin: 0 0 50px;
+
   @include breakpoint($tablet-960) {
     margin: 0 0 32px
   }
@@ -36,7 +37,6 @@ export default {
 .popup__subtitle {
   font: 500 14px/1.5 $font-default;
   text-transform: uppercase;
-
   color: $color-white;
   text-align: center;
   margin: 0 0 24px;
@@ -50,7 +50,6 @@ export default {
 
 .popup__title {
   font: 700 52px/1.2 $font-default;
-  
   color: $color-white;
   text-align: center;
   margin: 0 auto 32px;

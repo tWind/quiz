@@ -95,6 +95,12 @@ export default {
     }
   }
 
+  &--white {
+    width: auto;
+    background: $color-white;
+    color: $color-black-3;
+  }
+
   &--answer {
     padding: 0 31px 0;
     background: $color-white;
