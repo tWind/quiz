@@ -7,6 +7,7 @@
     <slot></slot>
     
     <app-footer />
+    
     <modal name="modal-quest"
       :width="`100%`"
       :height="`100%`"
