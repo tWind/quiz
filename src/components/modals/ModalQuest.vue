@@ -20,4 +20,7 @@ export default {
 </script>
 
 <style lang="scss">
+.modal-quest {
+  height: 100%;
+}
 </style>

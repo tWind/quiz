@@ -1,0 +1,23 @@
+@mixin default-text-input {
+  border-radius: 60px;
+  border: 1px solid $color-gray;
+  padding: 23px 30px 24px 30px;
+  font-family: $font-default;
+  color: $color-black;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  user-select: none;
+  width: 100%;
+  outline: none;
+  margin: 0;
+  display: block;
+  text-align: left;
+  background: $color-white;
+  transition: all 0.3s ease;
+
+  @include breakpoint($tablet-960) {
+    padding: 16px 30px 14.5px 30px
+  }
+}

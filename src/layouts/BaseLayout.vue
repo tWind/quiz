@@ -9,8 +9,7 @@
     <app-footer />
     <modal name="modal-quest"
       :width="`100%`"
-      :height="`auto`"
-      :scrollable="true"
+      :height="`100%`"
     >
       <modal-quest />
     </modal>

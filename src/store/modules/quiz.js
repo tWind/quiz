@@ -102,7 +102,7 @@ export default {
     }
   },
   getters: {
-    getVariants(state) {
+    quizVariants(state) {
       return state.variants;
     },
     getInfo(state) {

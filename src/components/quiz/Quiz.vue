@@ -57,6 +57,7 @@ export default {
       navDisabled: true,
       items: [],
       currentVariant: {},
+      selectedVariants: [],
       questionCount: 1,
       userRequestInfo: {
         phone: '',
@@ -66,7 +67,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('quiz', ['getVariants']),
+    ...mapGetters('quiz', ['quizVariants']),
   },
   methods: {
     ...mapActions('quiz', ['loadSelectionLead']),
@@ -74,6 +75,7 @@ export default {
     selectCallback(answer) {
       this.userRequestInfo.tags.push(`${ answer.id }`);
       this.userRequestInfo.log.push(`${ this.currentVariant.TITLE }: ${ answer.result }`);
+  
       this.navDisabled = false;
       
       console.log(this.userRequestInfo);
@@ -81,9 +83,11 @@ export default {
       if(answer.code) {
         this.questionCount += 1;
 
-        this.currentVariant = this.variants.find((variant) => {
+        this.currentVariant = this.quizVariants.find((variant) => {
           return variant.CODE === answer.code;
         });
+
+        this.selectedVariants.push(this.currentVariant);
       } else {
         this.currentVariant = null;
       }
@@ -105,9 +109,12 @@ export default {
       if(this.navDisabled) return;
       
       this.questionCount -= 1;
+
       this.userRequestInfo.tags.pop();
       this.userRequestInfo.log.pop();
-      this.currentVariant = this.variants[this.questionCount - 1];
+      this.selectedVariants.pop();
+
+      this.currentVariant = this.selectedVariants[this.selectedVariants.length - 1];
 
       this.checkNavigationAbility();
     },
@@ -118,8 +125,8 @@ export default {
     }
   },
   mounted() {
-    this.variants = this.getVariants;
-    this.currentVariant = this.variants[0];
+    this.currentVariant = this.quizVariants[0];
+    this.selectedVariants.push(this.currentVariant);
   },
   components: {
     QuizAnswer,

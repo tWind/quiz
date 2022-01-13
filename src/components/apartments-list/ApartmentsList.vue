@@ -39,18 +39,18 @@ export default {
   computed: {
     ...mapGetters('quiz', ['objectsCompilation', 'socketChannel']),
   },
-  sockets: {
-    connect: function () {
-      console.log('socket connected')
-    },
-    // TODO: убрать метод после тестирования подключения
-    join: function (data) {
-      console.log(`this method was fired by the socket server ${data}`)
-    },
-    'changed-compilation': function(data) {
-      console.log(data);
-    },
-  },
+  // sockets: {
+  //   connect: function () {
+  //     console.log('socket connected')
+  //   },
+  //   // TODO: убрать метод после тестирования подключения
+  //   join: function (data) {
+  //     console.log(`this method was fired by the socket server ${data}`)
+  //   },
+  //   'changed-compilation': function(data) {
+  //     console.log(data);
+  //   },
+  // },
   mounted() {
     this.$socket.emit('join', this.socketChannel);
   },
