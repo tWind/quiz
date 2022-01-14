@@ -39,13 +39,13 @@ $(document).ready(function () {
 
   // Init
   initTelMask();
-  showCloseQuestPopup();
-  showCloseFeedbackFormPopup();
+  // showCloseQuestPopup();
+  // showCloseFeedbackFormPopup();
 });
 
 $(window).on('load', function() {
-  animationOfNumbers();
-  magnetizationOfCirclesToTheCursor();
+  // animationOfNumbers();
+  // magnetizationOfCirclesToTheCursor();
 });
 
 // Круги, которые магнитятся к кругам
@@ -78,7 +78,7 @@ function magnetizationOfCirclesToTheCursor() {
         var deltaY = Math.floor((centerY - mY)) * -0.45;
 
         var distance = calculateDistance(item, mX, mY);
-
+        // console.log(distance);
         if (distance < customDist) {
           TweenMax.to(item, 0.5, {y: deltaY, x: deltaX, scale: 1.1});
           item.addClass('magnet');
@@ -89,6 +89,7 @@ function magnetizationOfCirclesToTheCursor() {
       }
 
       function calculateDistance(elem, mouseX, mouseY) {
+        console.log(`elem.offset().left: ${elem.offset().left}`);
         return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left + (elem.width() / 2)), 2) + Math.pow(mouseY - (elem.offset().top + (elem.height() / 2)), 2)));
       }
     }

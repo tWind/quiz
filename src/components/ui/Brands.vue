@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { TweenMax } from 'gsap';
+
 const BRANDS = [
   'zhik',
   'meriton',
@@ -29,6 +31,68 @@ export default {
       brands: BRANDS,
     }
   },
+  methods: {
+    magnetizationOfCirclesToTheCursor() {
+      let $brandsItems = this.$el.querySelectorAll('.brands__item');
+
+      if ($brandsItems.length > 0) {
+        let windowWidth = window.outerWidth;
+
+        window.addEventListener('resize', () => {
+          windowWidth = window.outerWidth();
+        });
+
+        if (windowWidth >= 960) {
+          // For ever Button found, run this function
+          this.$el.addEventListener('mousemove', function (e) {
+            $brandsItems.forEach((item) => {
+              magnetize(item, e);
+            });
+          });
+        }
+      }
+
+      function magnetize(el, e) {
+          var mX = e.pageX,
+            mY = e.pageY;
+
+          const customDist = el.dataset.dist * 20 || 120,
+            centerX = getCoords(el).left + (el.offsetWidth / 2),
+            centerY = getCoords(el).top + (el.offsetHeight / 2);
+
+          var deltaX = Math.floor((centerX - mX)) * -0.45;
+          var deltaY = Math.floor((centerY - mY)) * -0.45;
+
+          var distance = calculateDistance(el, mX, mY);
+          
+          if (distance < customDist) {
+            TweenMax.to(el, 0.5, {y: deltaY, x: deltaX, scale: 1.1});
+            el.classList.add('magnet');
+          } else {
+            TweenMax.to(el, 0.6, {y: 0, x: 0, scale: 1});
+            el.classList.remove('magnet');
+          }
+        }
+
+      function calculateDistance(elem, mouseX, mouseY) {
+        let coords = getCoords(elem);
+        
+        return Math.floor(Math.sqrt(Math.pow(mouseX - (coords.left + (elem.offsetWidth / 2)), 2) + Math.pow(mouseY - (coords.top + (elem.offsetHeight / 2)), 2)));
+      }
+
+      function getCoords(elem) {
+        var box = elem.getBoundingClientRect();
+
+        return {
+          top: box.top + scrollY,
+          left: box.left + scrollX,
+        };
+      }
+    },
+  },
+  mounted() {
+    this.magnetizationOfCirclesToTheCursor();
+  }
 }
 </script>
 
