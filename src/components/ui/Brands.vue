@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { TweenMax } from 'gsap';
+import { gsap } from 'gsap';
 
 const BRANDS = [
   'zhik',
@@ -37,9 +37,8 @@ export default {
 
       if ($brandsItems.length > 0) {
         let windowWidth = window.outerWidth;
-
         window.addEventListener('resize', () => {
-          windowWidth = window.outerWidth();
+          windowWidth = window.outerWidth;
         });
 
         if (windowWidth >= 960) {
@@ -66,10 +65,10 @@ export default {
           var distance = calculateDistance(el, mX, mY);
           
           if (distance < customDist) {
-            TweenMax.to(el, 0.5, {y: deltaY, x: deltaX, scale: 1.1});
+            gsap.to(el, 0.5, {y: deltaY, x: deltaX, scale: 1.1});
             el.classList.add('magnet');
           } else {
-            TweenMax.to(el, 0.6, {y: 0, x: 0, scale: 1});
+            gsap.to(el, 0.6, {y: 0, x: 0, scale: 1});
             el.classList.remove('magnet');
           }
         }
