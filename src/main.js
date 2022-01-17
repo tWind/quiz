@@ -5,12 +5,14 @@ import router from './router';
 import store from './store';
 
 import VModal from 'vue-js-modal';
+import VMask from 'v-mask';
 
 import './scss/main.scss';
 
 Vue.config.productionTip = false;
 
 Vue.use(VModal);
+Vue.use(VMask);
 
 Vue.use(new VueSocketIO({
     debug: true,

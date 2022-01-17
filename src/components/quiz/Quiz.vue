@@ -33,10 +33,16 @@
       </div>
       <form class="popup__form">
         <div class="popup__form-row">
-          <input v-model="userRequestInfo.phone" class="popup__input-text popup__input-text--tel" type="text" value="" placeholder="+7 (___)___-__-__">
+          <input
+            v-mask="'+7 (###) ### ## ##'"
+            v-model="userRequestInfo.phone"
+            @keyup="validatePhone()"
+            class="popup__input-text popup__input-text--tel" type="text" value="" placeholder="+7 (___)___-__-__">
         </div>
+
         <div class="popup__form-row">
-          <base-button @click="sendCompilationRequest">Получить подборку</base-button>
+          <base-button @click="sendCompilationRequest" :disabled="!requestAvailable">Получить подборку</base-button>
+
           <div class="popup__form-descr">Отправляя заявку вы&nbsp;соглашаетесь с&nbsp;условиями политики конфеденциальности</div>
         </div>
       </form>
@@ -55,6 +61,7 @@ export default {
   data() {
     return {
       navDisabled: true,
+      requestAvailable: false,
       items: [],
       currentVariant: {},
       selectedVariants: [],
@@ -77,8 +84,6 @@ export default {
       this.userRequestInfo.log.push(`${ this.currentVariant.TITLE }: ${ answer.result }`);
   
       this.navDisabled = false;
-      
-      console.log(this.userRequestInfo);
 
       if(answer.code) {
         this.questionCount += 1;
@@ -120,6 +125,11 @@ export default {
     },
     checkNavigationAbility() {
       this.navDisabled = (!this.currentVariant || this.questionCount === 1)
+        ? true
+        : false;
+    },
+    validatePhone() {
+      this.requestAvailable = (this.userRequestInfo.phone.length === 18)
         ? true
         : false;
     }
