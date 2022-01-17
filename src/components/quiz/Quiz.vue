@@ -26,26 +26,7 @@
     </div>
 
     <div v-else class="quiz__feedback" >
-      <div class="popup__text-wrapper">
-        <div class="popup__subtitle">Оставьте заявку</div>
-        <div class="popup__title">Мы&nbsp;нашли квартиры, которые вам подходят</div>
-        <div class="popup__descr">Укажите ваш личный номер телефона&nbsp;&mdash; на&nbsp;него вы&nbsp;получите подборку квартир</div>
-      </div>
-      <form class="popup__form">
-        <div class="popup__form-row">
-          <input
-            v-mask="'+7 (###) ### ## ##'"
-            v-model="userRequestInfo.phone"
-            @keyup="validatePhone()"
-            class="popup__input-text popup__input-text--tel" type="text" value="" placeholder="+7 (___)___-__-__">
-        </div>
-
-        <div class="popup__form-row">
-          <base-button @click="sendCompilationRequest" :disabled="!requestAvailable">Получить подборку</base-button>
-
-          <div class="popup__form-descr">Отправляя заявку вы&nbsp;соглашаетесь с&nbsp;условиями политики конфеденциальности</div>
-        </div>
-      </form>
+      <quiz-feedback @feedback:submit="sendCompilationRequest($event)" />
     </div>
   </div>
 </template>
@@ -53,15 +34,14 @@
 <script>
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 
-import BaseButton from '@/components/ui/BaseButton';
 import QuizAnswer from './QuizAnswer';
+import QuizFeedback from './QuizFeedback';
 
 export default {
   name: 'Quiz',
   data() {
     return {
       navDisabled: true,
-      requestAvailable: false,
       items: [],
       currentVariant: {},
       selectedVariants: [],
@@ -99,7 +79,9 @@ export default {
 
       this.checkNavigationAbility();
     },
-    sendCompilationRequest() {
+    sendCompilationRequest(phone) {
+      this.userRequestInfo.phone = phone;
+
       // собираем теги и ответы в строки - необходимый формат для запроса
       this.userRequestInfo.tags = this.userRequestInfo.tags.join(',');
       this.userRequestInfo.log = this.userRequestInfo.log.join('<br>');
@@ -128,11 +110,6 @@ export default {
         ? true
         : false;
     },
-    validatePhone() {
-      this.requestAvailable = (this.userRequestInfo.phone.length === 18)
-        ? true
-        : false;
-    }
   },
   mounted() {
     this.currentVariant = this.quizVariants[0];
@@ -140,7 +117,7 @@ export default {
   },
   components: {
     QuizAnswer,
-    BaseButton,
+    QuizFeedback,
   }
 };
 </script>
