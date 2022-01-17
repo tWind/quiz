@@ -29,7 +29,7 @@ export default {
     },
     setRequestInfo(state, payload) {
       state.requestInfo = payload;
-    }
+    },
   },
   actions: {
     async loadAppInfo(store, params) {

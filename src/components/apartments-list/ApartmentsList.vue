@@ -1,7 +1,7 @@
 <template>
   <div class="list-of-apartments">
     <div class="list-of-apartments__container">
-      <h1 class="list-of-apartments__title" @click="clickButton(this.socketChannel)">Спасибо</h1>
+      <h1 class="list-of-apartments__title">Спасибо</h1>
       <p class="list-of-apartments__descr">Менеджер свяжется с&nbsp;вами и&nbsp;подготовит<br>подборку по&nbsp;вашим параметрам</p>
       <div class="list-of-apartments__list-wrapper">
         <div class="list-of-apartments__list-header">
@@ -30,32 +30,34 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 
 import ApartmentsListItem from './ApartmentsListItem';
+
+import fakeJsonData from '@/data/testCompilation.json';
 
 export default {
   name: 'ApartmentsList',
   computed: {
     ...mapGetters('quiz', ['objectsCompilation', 'socketChannel']),
   },
-  // sockets: {
-  //   connect: function () {
-  //     console.log('socket connected')
-  //   },
-  //   // TODO: убрать метод после тестирования подключения
-  //   join: function (data) {
-  //     console.log(`this method was fired by the socket server ${data}`)
-  //   },
-  //   'changed-compilation': function(data) {
-  //     console.log(data);
-  //   },
-  // },
+  sockets: {
+    connect: function () {
+      console.log('socket connected')
+    },
+    'changed-compilation': function(data) {
+      this.setCompilation(data);
+    },
+  },
+  methods: {
+    ...mapMutations('quiz', ['setCompilation']),
+  },
   mounted() {
     this.$socket.emit('join', this.socketChannel);
   },
   components: {
     ApartmentsListItem,
+    BaseButton,
   },
 };
 </script>
