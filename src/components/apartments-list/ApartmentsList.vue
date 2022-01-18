@@ -34,7 +34,6 @@ import { mapGetters, mapMutations } from 'vuex';
 
 import ApartmentsListItem from './ApartmentsListItem';
 
-import fakeJsonData from '@/data/testCompilation.json';
 
 export default {
   name: 'ApartmentsList',
@@ -57,7 +56,6 @@ export default {
   },
   components: {
     ApartmentsListItem,
-    BaseButton,
   },
 };
 </script>
