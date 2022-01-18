@@ -45,8 +45,8 @@ export default {
       console.log('socket connected')
     },
     'changed-compilation': function(data) {
-      this.setCompilation(data.compiation);
-      console.log(`updating compilation ${data.compiation}`);
+      this.setCompilation(data.compilation);
+      console.log(`updating compilation ${data.compilation}`);
     },
   },
   methods: {
