@@ -8,7 +8,7 @@
 <script>
 const OPTIONS = {
   numberChangeDuration: 20,
-  startAnimatePosition: 300,
+  startAnimatePosition: 600,
 };
 
 export default {
@@ -65,6 +65,7 @@ export default {
   max-width: 260px;
   margin: 0 40px 0 0;
   opacity: 0;
+  transition: opacity .15s ease;
 
   @include breakpoint($mobile-640) {
     max-width: 100%;

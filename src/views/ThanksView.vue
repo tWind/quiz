@@ -18,3 +18,20 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+@import '~breakpoint-sass';
+
+.thanks {
+  position: relative;
+  margin: 30px;
+  border: 1px solid $color-black-2;
+  border-radius: 60px;
+  z-index: 6;
+
+  @include breakpoint($tablet-960) {
+    margin: 16px;
+    border-radius: 32px;
+  }
+}
+</style>

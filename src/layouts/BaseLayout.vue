@@ -1,7 +1,11 @@
 <template>
-  <div class="base-layout">
+  <div class="base-layout" :class="{ 'base-layout--bg': isMainPage }">
+    <div class="bg" v-if="isMainPage">
+      <div class="bg__noise"></div>
+    </div>
+
     <section>
-      <app-header />
+      <app-header :class="{ 'header--black': !isMainPage }" />
     </section>
 
     <slot></slot>
@@ -39,6 +43,11 @@ export default {
       this.currentModal = null;
     },
   },
+  computed: {
+    isMainPage() {
+      return this.$route.name === 'index' ? true : false;
+    },
+  },
   created() {
     this.$root.$on('layout:showModal', (data) => {
       this.showModal(data);
@@ -55,4 +64,19 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+@import '~breakpoint-sass';
+
+.base-layout {
+  &--bg {
+    background-image: url('#{$images-path}/bg.webp');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include breakpoint($mobile-640) {
+      background-image: url('#{$images-path}/bg-mobile.webp');
+    }
+  }
+}
+</style>
