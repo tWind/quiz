@@ -298,6 +298,7 @@ export default {
 }
 
 .popup__input-text {
+  user-select: auto;
   @include default-text-input;
 }
 </style>
