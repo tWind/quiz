@@ -25,28 +25,27 @@ export default {
 @import '~breakpoint-sass';
 
 .base-button {
-  user-select: none;
   display: inline-block;
+  width: 100%;
+  height: auto;
   font: normal 700 12px $font-default;
   text-transform: uppercase;
   color: $color-white;
   letter-spacing: 0.08em;
-  width: 100%;
-  height: auto;
   background: $color-black-3;
   border-radius: 30px;
   border: none;
-  line-height: 1;
-  padding: 20px 24px 18px;
+  line-height: 50px;
+  padding: 0 24px;
   cursor: pointer;
   outline: none;
   text-decoration: none;
   text-align: center;
   transition: all 0.2s ease;
+  user-select: none;
 
   @include breakpoint($tablet-960) {
     font-size: 10px;
-    padding: 13px 12px 12px;
   }
     
   &:disabled,
@@ -102,7 +101,6 @@ export default {
   }
 
   &--answer {
-    padding: 0 31px 0;
     background: $color-white;
     border: 1px solid $color-white;
     border-radius: 60px;
@@ -118,7 +116,6 @@ export default {
     }
       
     @include breakpoint($tablet-960) {
-      padding: 0 21px 0;
       font: 400 14px/50px $font-default;
     }
 
@@ -127,10 +124,6 @@ export default {
       background: $color-black-2;
       color: $color-white;
     }
-  }
-
-  @include breakpoint($mobile-640) {
-    padding: 17px 20px 15px;
   }
 }
 </style>

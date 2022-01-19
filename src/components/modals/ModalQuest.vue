@@ -24,46 +24,14 @@ export default {
 @import '~@/scss/mixins/_core';
 .modal-quest {
   height: 100%;
-}
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow-y: scroll;
 
-.popup__text-wrapper {
-  margin: 0 0 50px;
-
-  @include breakpoint($tablet-960) {
-    margin: 0 0 32px
-  }
-}
-    
-.popup__subtitle {
-  font: 500 14px/1.5 $font-default;
-  text-transform: uppercase;
-  color: $color-white;
-  text-align: center;
-  margin: 0 0 24px;
-
-  @include fluid-type(768px, 960px, 10px, 14px);
-  @include breakpoint($tablet-960) {
-    font-weight: 400;
-    margin: 0 0 12px;
-  }
-}
-
-.popup__title {
-  font: 700 52px/1.2 $font-default;
-  color: $color-white;
-  text-align: center;
-  margin: 0 auto 32px;
-  width: 100%;
-  max-width: 715px;
-
-  @include fluid-type(768px, 960px, 24px, 52px);
-  @include breakpoint($tablet-960) {
-    margin: 0 0 32px;
-  }
-    
-  &:last-child {
-    margin-bottom: 0;
-    @include breakpoint($tablet-960);
+  &::-webkit-scrollbar {
+    display: none /* Safari and Chrome */
   }
 }
 

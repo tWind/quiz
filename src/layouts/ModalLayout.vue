@@ -15,7 +15,7 @@
           <div class="popup__close" @click="closeModal()"></div>
         </div>
       </div>
-      <div class="popup__content">
+      <div class="modal__content">
         <slot></slot>
       </div>
     </div>
@@ -38,7 +38,9 @@ export default {
 @import '~@/scss/mixins/_core';
 
 .modal-layout {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   padding: 30px;
   background-image: url('~@/assets/images/bg.webp');
   background-position: center top;
@@ -60,6 +62,8 @@ export default {
   flex-direction: column;
   width: 100%;
   height: 100%;
+  flex-basis: 100%;
+  flex-grow: 1;
   padding: 0 0 60px;
   border: 1px solid $color-black-2;
   border-radius: 60px;
@@ -72,10 +76,6 @@ export default {
     flex-direction: column;
     justify-content: stretch;
     align-items: center;
-  }
-    
-  &::-webkit-scrollbar {
-    display: none /* Safari and Chrome */
   }
 }
 
@@ -163,18 +163,15 @@ export default {
   }
 }
 
-.popup__content {
+.modal__content {
   padding: 0 50px;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: flex-start;
   align-items: center;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  overflow-y: scroll;
+  align-self: center;
+  margin: auto;
 
   @include breakpoint($tablet-960) {
     padding: 0 24px;

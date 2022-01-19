@@ -25,17 +25,6 @@ body {
   overflow-x: hidden;
 }
 
-.body--bg {
-  background-image: url('#{$images-path}/bg.webp');
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-  @include breakpoint($mobile-640) {
-    background-image: url('#{$images-path}/bg-mobile.webp');
-  }
-}
-
 .bg {
   width: 100%;
   height: 100vh;
@@ -45,6 +34,7 @@ body {
   top: 0;
   bottom: 0;
 }
+
 .bg__noise {
   z-index: 1;
   width: 100%;
@@ -52,5 +42,18 @@ body {
   background: url("#{$images-path}/noise.gif") center center repeat;
   opacity: 0.05;
   pointer-events: none;
+}
+
+.section {
+  border: 1px solid $color-black-2;
+  border-radius: 60px;
+  margin: 30px;
+  position: relative;
+  z-index: 6;
+
+  @include breakpoint($tablet-960) {
+    margin: 16px;
+    border-radius: 32px;
+  }
 }
     

@@ -1,0 +1,9 @@
+@mixin icon-star {
+  @include icon;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m8 .616 1.658 5.102h5.365l-4.34 3.154 1.658 5.103L8 10.82 3.66 13.975l1.658-5.103L.977 5.718h5.365L8 .616Z' fill='%23fff'/%3E%3C/svg%3E");
+  width: 16px;
+  min-width: 16px;
+  height: 14px;
+  min-height: 14px;
+}

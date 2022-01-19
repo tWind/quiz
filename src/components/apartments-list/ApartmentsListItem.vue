@@ -1,9 +1,9 @@
 <template>
-  <a class="list-of-apartments__list-item" href="#">
+  <div class="apartments-list-item">
     <div class="list-of-apartments__list-item-container">
-      <div class="list-of-apartments__list-item-tags">
-        <div v-for="tag in item.tags" :key="tag.index" class="list-of-apartments__list-item-tag">
-          <div class="list-of-apartments__list-item-tag-text">{{ tag }}</div>
+      <div class="apartments-list-item__tags">
+        <div v-for="tag in item.tags" :key="tag.index" class="apartments-list-item__tag">
+          <span>{{ tag }}</span>
         </div>
       </div>
 
@@ -69,7 +69,7 @@
       </div>
       <img class="list-of-apartments__list-item-img" :src="itemBgUrl" />
     </div>
-  </a>
+  </div>
 </template>
 
 <script>
@@ -91,4 +91,66 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '~breakpoint-sass';
+@import '~@/scss/mixins/core';
+
+.apartments-list-item {
+  display: block;
+  width: 100%;
+}
+
+.apartments-list-item__tags {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include breakpoint($tablet-960) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.apartments-list-item__tag {
+  background: rgba($color-black-2, 0.5);
+  border-radius: 30px;
+  margin: 0 8px 4px 0;
+  padding: 6.5px 10px 5.5px;
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include breakpoint($tablet-960) {
+    margin: 0 0 8px 0;
+  }
+    
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:before {
+    content: '';
+    transform: translate3d(0,-1px,0);
+  }
+    
+  &--people {
+    &:before { @include icon-people; }
+  }
+  &--star {
+    &:before { @include icon-star; }
+  }
+
+  span {
+    font: 400 12px/1 $font-default;
+    color: $color-white;
+    text-decoration: none;
+    margin: 0 0 0 4px;
+
+    @include breakpoint($tablet-960) {
+      font: 400 10px/1 $font-default;
+    }
+  }
+}
+</style>

@@ -1,8 +1,9 @@
 <template>
-  <div class="list-of-apartments">
-    <div class="list-of-apartments__container">
-      <h1 class="list-of-apartments__title">Спасибо</h1>
-      <p class="list-of-apartments__descr">Менеджер свяжется с&nbsp;вами и&nbsp;подготовит<br>подборку по&nbsp;вашим параметрам</p>
+  <div class="apartments-list">
+    <div class="apartments-list__container">
+      <h1 class="apartments-list__title">Спасибо</h1>
+      <p class="apartments-list__descr">Менеджер свяжется с&nbsp;вами и&nbsp;подготовит<br>подборку по&nbsp;вашим параметрам</p>
+
       <div class="list-of-apartments__list-wrapper">
         <div class="list-of-apartments__list-header">
           <div class="list-of-apartments__list-header-col list-of-apartments__list-header-col--left">
@@ -18,11 +19,11 @@
             </a>
           </div>
         </div>
-        <div class="list-of-apartments__list-content">
-          <apartments-list-item
-            v-for="object in objectsCompilation" :key="object.index"
-            :item="object"
-          />
+
+        <div class="apartments-list__content">
+          <div class="apartments-list__item" v-for="object in objectsCompilation" :key="object.index">
+            <apartments-list-item :item="object" />
+          </div>
         </div>
       </div>
     </div>
@@ -65,7 +66,204 @@ export default {
 @import '~breakpoint-sass';
 @import '~@/scss/mixins/core';
 
-.list-of-apartments {
+.apartments-list {
   margin: 50px 0 0;
+
+  @include breakpoint($tablet-960) {
+    margin: 36px 0 0 0;
+  }
+}
+
+.apartments-list__container {
+  padding: 0 50px 80px 50px;
+    
+  @include breakpoint($tablet-960) {
+    padding: 0 16px 16px 16px;
+  }
+}
+
+.apartments-list__title {
+  font: 700 80px/1.2 $font-default;
+  color: $color-black-2;
+  text-align: center;
+  margin: 0 0 12px;
+
+  @include fluid-type(768px, 960px, 40px, 80px);
+  @include breakpoint($tablet-960) {
+    margin: 0 0 16px;
+  }
+}
+
+.apartments-list__descr {
+  font: 400 18px/1.25 $font-default;
+  color: $color-black-2;
+  text-align: center;
+  margin: 0 0 120px;
+  
+  @include breakpoint($tablet-960) {
+    font: 400 16px/1.25 $font-default;
+    margin: 0 0 64px;
+  }
+}
+
+.apartments-list__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+    
+.apartments-list__item {
+  display: flex;
+  margin: 0 1.57% 1.57% 0;
+  padding: 0 1.57% 1.57% 0;
+  width: 32.6%;
+  position: relative;
+
+  @include breakpoint($desktop-1200-1920) {
+    margin: 0 1.57% 1.57% 0;
+    padding: 0 1.57% 1.57% 0;
+  }
+    
+  @include breakpoint($desktop-1200) {
+    width: 48.7%;
+    padding: 0 0 0 0;
+    margin: 0 2.6% 2.6% 0;
+  }
+    
+  @include breakpoint($tablet-960) {
+    width: 100%;
+    margin: 0 0 24px 0;
+    padding: 0 0 0 0;
+  }
+    
+  &:last-child {
+    margin-bottom: 0;
+  }
+    
+  &:before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 110%;
+    background: $color-gray;
+    position: absolute;
+    right: 0;
+    top: 0;
+    
+    @include breakpoint($desktop-1200) {
+      display: none
+    }
+      
+    @include breakpoint($tablet-960) {
+      display: none
+    }
+  }
+    
+  &:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: $color-gray;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    @include breakpoint($desktop-1200) {
+      display: none
+    }
+      
+    @include breakpoint($tablet-960) {
+      display: none
+    }
+  }
+
+  &:nth-child(3n+3) {
+    padding-right: 0;
+    margin-right: 0;
+
+    @include breakpoint($desktop-1920) {
+      width: 31.6%;
+    }
+    @include breakpoint($desktop-1200-1920) {
+      width: 31.6%;
+    }
+    @include breakpoint($desktop-1200) {
+      margin-right: 2.6%;
+    } 
+    @include breakpoint($tablet-960) {
+      margin-right: 0;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+    
+  &:nth-last-child(1) {
+    &:before {
+      height: calc(100% - 15px);
+      @include breakpoint($desktop-1200) {
+        display: none;
+      }
+    }
+        
+    &:after {
+      display: none;
+      @include breakpoint($desktop-1200) {
+        display: none;
+      }
+    }
+  }
+
+  &:nth-last-child(2) {
+    &:before {
+      height: calc(100% - 15px);
+      @include breakpoint($desktop-1200) {
+        display: none;
+      }
+    }
+        
+    &:after {
+      display: none;
+      @include breakpoint($desktop-1200) {
+        display: none;
+      }
+    }
+  }
+
+  &:nth-last-child(3) {
+    &:before {
+      height: calc(100% - 15px);
+      @include breakpoint($desktop-1200) {
+        display: none;
+      }
+    }
+        
+    &:after {
+      display: none;
+      @include breakpoint($desktop-1200) {
+        display: none;
+      }
+    }
+  }
+    
+  &:nth-child(2n+2) {
+    @include breakpoint($desktop-1200) {
+      margin-right: 0;
+      padding-right: 0;
+    }
+      
+    &:before {
+      @include breakpoint($desktop-1200) {
+        display: none;
+      }
+    }
+      
+    &:after {
+      @include breakpoint($desktop-1200) {
+        display: none;
+      }
+    }
+  }
 }
 </style>
