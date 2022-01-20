@@ -5,6 +5,7 @@ import guards from './guards';
 
 import IndexView from '@/views/IndexView';
 import ThanksView from '@/views/ThanksView';
+import ErrorView from '@/views/ErrorView';
 
 Vue.use(Router);
 
@@ -22,6 +23,15 @@ const router = new Router({
       name: 'thanks',
       component: ThanksView,
       beforeEnter: (to, from, next) => guards.loadPageData(to, from, next),
+    },
+    {
+      path: '/error',
+      name: 'error',
+      component: ErrorView,
+    },
+    {
+      path: '*',
+      redirect: { name: 'index' },
     },
   ],
 });

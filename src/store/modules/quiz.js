@@ -32,8 +32,8 @@ export default {
     },
   },
   actions: {
-    async loadAppInfo(store, params) {
-      const response = await api.get(constants.API_QUIZ_URL, params),
+    async loadAppInfo(store, data) {
+      const response = await api.get(`${constants.API_QUIZ_URL}${data.query.utm}`, data.params),
         baseSettings = response.data.data.BASE,
         quizSettings = response.data.data.QUIZ;
 
