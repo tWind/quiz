@@ -18,8 +18,10 @@ async function dispatchToStore(actions, params) {
  * Route Guard. Загружает данные обязательные для всех страниц сайта.
  */
  async function loadMainData(to, from, next) {
+  const { params, query} = to;
+
   try {
-    await dispatchToStore(ACTIONS_MAIN, to.params);
+    await dispatchToStore(ACTIONS_MAIN, { params, query });
     return next();
   } catch (error) {
     return next(error);
