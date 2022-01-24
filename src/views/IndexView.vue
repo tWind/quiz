@@ -6,11 +6,11 @@
       </section>
       
       <section class="section">
-        <info class="info--numbers" :title="`Проверяем все новостройки`">
-          <p class="info__descr">Из&nbsp;нашей базы удаляются новостройки, которые затягивают сроки строительства, имеют плохие отзывы жильцов или прецеденты обмана при заключении договора. Такие объекты не&nbsp;попадут к&nbsp;вам в&nbsp;подборку.</p>
+        <info class="info--numbers" :title="appText.banner.second.header">
+          <p class="info__descr">{{ appText.banner.second.text }}</p>
 
           <div class="info__list">
-            <counter class="info__item" v-for="counter in counters" :key="counter.index"
+            <counter class="info__item" v-for="counter in appText.counters" :key="counter.index"
               :count="counter.number"
               :title="counter.title" />
           </div>
@@ -18,10 +18,10 @@
       </section>
 
       <section class="section">
-        <info :title="`Пришлем предложения<br>от&nbsp;крупных застройщиков`">
-          <p class="info__descr">Мы&nbsp;напрямую сотрудничаем только с&nbsp;надежными, юридически чистыми застройщиками. Каждый день получаем актуальную информацию об&nbsp;изменении цен, скидках и&nbsp;выгодных предложениях в&nbsp;новостройках.</p>
+        <info :title="appText.banner.third.header">
+          <p class="info__descr">{{ appText.banner.second.text }}</p>
 
-          <base-button class="base-button--decor" @click="showModal('modal-quest')">подобрать квартиру</base-button>
+          <base-button class="base-button--decor" @click="showModal('modal-quest')">{{ appText.button.start }}</base-button>
         </info>
 
         <brands />
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import BaseLayout from '@/layouts/BaseLayout';
 import Cover from '@/components/ui/Cover.vue';
 import Brands from '@/components/ui/Brands.vue';
@@ -55,6 +57,9 @@ export default {
     return {
       counters: COUNTERS,
     }
+  },
+  computed: {
+    ...mapGetters('quiz', ['appText'])
   },
   methods: {
     showModal(modal) {

@@ -97,22 +97,6 @@ export default {
     @include breakpoint($tablet-960);
   }
 }
-
-.popup__form-descr {
-  font: 400 12px/1.35 $font-default;
-  color: $color-white;
-  margin: 0 0 0 30px;
-  transform: translate3d(0,7px,0);
-
-  @include breakpoint($tablet-960) {
-    transform: translate3d(0, -7px, 0);
-  }
-    
-  @include breakpoint($tablet-768) {
-    transform: translate3d(0, 0, 0);
-    margin: 0 0 0 0;
-  }
-}
   
 .popup__form-label {
   width: 100%;

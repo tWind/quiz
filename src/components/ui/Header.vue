@@ -6,7 +6,7 @@
         <div class="header__descr">{{ appText.header.sub }}</div>
       </div>
       <div class="header__col header__col--right">
-        <base-button @click="showModal('modal-quest')">подобрать квартиру</base-button>
+        <base-button @click="showModal('modal-quest')">{{ appText.button.start }}</base-button>
       </div>
     </div>
   </header>

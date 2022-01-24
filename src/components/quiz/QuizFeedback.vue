@@ -2,8 +2,8 @@
   <div class="quiz-feedback">
     <div class="quiz-feedback__header">
       <div class="popup__subtitle">Оставьте заявку</div>
-      <div class="popup__title">Мы&nbsp;нашли квартиры, которые вам подходят</div>
-      <div class="popup__descr">Укажите ваш личный номер телефона&nbsp;&mdash; на&nbsp;него вы&nbsp;получите подборку квартир</div>
+      <div class="popup__title">{{ appText.form.header }}</div>
+      <div class="popup__descr">{{ appText.form.subheader }}</div>
     </div>
 
     <form class="quiz-feedback__form">
@@ -16,7 +16,7 @@
       </div>
 
       <div class="popup__form-row">
-        <base-button @click="submitFeedback" :disabled="!requestAvailable">Получить подборку</base-button>
+        <base-button @click="submitFeedback" :disabled="!requestAvailable">{{ appText.button.send }}</base-button>
 
         <div class="popup__form-descr">Отправляя заявку вы&nbsp;соглашаетесь с&nbsp;условиями политики конфеденциальности</div>
       </div>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import CODES from '@/data/phoneCodes';
 
 import BaseButton from '@/components/ui/BaseButton.vue';
@@ -40,6 +41,9 @@ export default {
   },
   components: {
     BaseButton,
+  },
+  computed: {
+    ...mapGetters('quiz', ['appText']),
   },
   methods: {
     validatePhone() {
@@ -171,7 +175,6 @@ export default {
   font: 400 12px/1.35 $font-default;
   color: $color-white;
   margin: 0 0 0 30px;
-  transform: translate3d(0,7px,0);
 
   @include breakpoint($tablet-960) {
     transform: translate3d(0, -7px, 0);
