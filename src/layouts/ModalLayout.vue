@@ -42,7 +42,7 @@ export default {
   flex-direction: column;
   min-height: 100%;
   padding: 30px;
-  background-image: url('~@/assets/images/bg.webp');
+  background-image: url('~@/assets/images/bg.png');
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;

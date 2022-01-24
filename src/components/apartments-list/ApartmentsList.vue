@@ -22,9 +22,7 @@
 
         <div class="apartments-list__content">
           <div class="apartments-list__item" v-for="object in objectsCompilation" :key="object.index">
-            <transition name="fade">
-              <apartments-list-item :item="object" />
-            </transition>
+            <apartments-list-item :item="object" />
           </div>
         </div>
       </div>
@@ -266,12 +264,5 @@ export default {
       }
     }
   }
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

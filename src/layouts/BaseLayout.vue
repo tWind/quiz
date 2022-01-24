@@ -5,7 +5,7 @@
     </div>
 
     <section>
-      <app-header :class="{ 'header--black': !isMainPage }" />
+      <app-header :class="{ 'header--black': !isMainPage }" :button="isMainPage" />
     </section>
 
     <slot></slot>
@@ -69,7 +69,7 @@ export default {
 
 .base-layout {
   &--bg {
-    background-image: url('#{$images-path}/bg.webp');
+    background-image: url('#{$images-path}/bg.png');
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;

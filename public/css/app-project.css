@@ -1286,13 +1286,7 @@
   padding: 0 0 0 0;
   border-top: 1px solid transparent;
 }
-.list-of-apartments__list-item-container:hover .list-of-apartments__list-item-content-row--hidden {
-  max-height: 391px;
-  margin-top: 20px;
-  padding-top: 20px;
-  border-color: #DEDEDE;
-  transition: max-height 0.25s ease-in, margin-top 0.25s ease-in, padding-top 0.25s ease-in, border-color 0.25s ease-in;
-}
+
 .list-of-apartments__list-item-content-row:first-child {
   margin-top: 0;
 }

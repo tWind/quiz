@@ -23,7 +23,7 @@ export default {
   width: 100%;
   max-height: 100vh;
   padding: 30px;
-  background-image: url('#{$images-path}/bg.webp');
+  background-image: url('#{$images-path}/bg.png');
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
