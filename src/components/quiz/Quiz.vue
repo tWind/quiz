@@ -149,21 +149,23 @@ export default {
 }
 
 .quiz__header-title {
+  height: 100px;
   font: 700 52px/1.2 $font-default;
   color: $color-white;
   text-align: center;
-  margin: 0 auto 32px;
+  line-height: 1;
+  margin: 0 auto 25px;
   width: 100%;
   max-width: 715px;
 
   @include fluid-type(768px, 960px, 24px, 52px);
   @include breakpoint($tablet-960) {
     margin: 0 0 32px;
+    height: auto;
   }
     
   &:last-child {
     margin-bottom: 0;
-    @include breakpoint($tablet-960);
   }
 }
 

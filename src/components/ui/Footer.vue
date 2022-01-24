@@ -4,7 +4,11 @@
       <div class="footer__copyright">@2021 Лайнер</div>
       <a class="footer__text-link" :href="appText.link.privacy">Политика конфиденциальности</a>
       <a class="footer__tel" :href="`tel:+${appText.phone.clear}`">{{ appText.phone.text }}</a>
-      <base-button class="footer__btn base-button--white" @click="showModal('modal-quest')">{{ appText.button.start }}</base-button>
+      <base-button class="footer__btn base-button--white"
+        v-if="button"
+        @click="showModal('modal-quest')">
+        {{ appText.button.start }}
+      </base-button>
     </div>
   </footer>
 </template>
@@ -16,6 +20,12 @@ import BaseButton from '@/components/ui/BaseButton';
 
 export default {
   name: 'Footer',
+  props: {
+    button: {
+      type: Boolean,
+      default: false,
+    }
+  },
   computed: {
     ...mapGetters('quiz', ['appText']),
   },

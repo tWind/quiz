@@ -6,7 +6,11 @@
         <div class="header__descr">{{ appText.header.sub }}</div>
       </div>
       <div class="header__col header__col--right">
-        <base-button @click="showModal('modal-quest')">{{ appText.button.start }}</base-button>
+        <base-button
+          v-if="button"
+          @click="showModal('modal-quest')">
+          {{ appText.button.start }}
+        </base-button>
       </div>
     </div>
   </header>
@@ -19,6 +23,12 @@ import BaseButton from '@/components/ui/BaseButton.vue';
 
 export default {
   name: 'Header',
+  props: {
+    button: {
+      type: Boolean,
+      default: false,
+    }
+  },
   computed: {
     ...mapGetters('quiz', ['appText'],)
   },

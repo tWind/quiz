@@ -47,6 +47,10 @@ export default {
   @include breakpoint($tablet-960) {
     font-size: 10px;
   }
+
+  @include breakpoint($mobile-480) {
+    white-space: nowrap;
+  }
     
   &:disabled,
   &[disabled] {

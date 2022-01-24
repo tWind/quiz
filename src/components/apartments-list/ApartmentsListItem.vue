@@ -1,66 +1,51 @@
 <template>
   <div class="apartments-list-item">
-    <div class="apartments-list-item__container">
-      <div class="apartments-list-item__tags">
-        <div v-for="tag in item.tags" :key="tag.index" class="apartments-list-item__tag">
-          <span>{{ tag }}</span>
+    <transition name="fade" appear>
+      <div class="apartments-list-item__container">
+        <div class="apartments-list-item__tags">
+          <div v-for="tag in item.tags" :key="tag.index" class="apartments-list-item__tag">
+            <span>{{ tag }}</span>
+          </div>
         </div>
-      </div>
 
-      <div class="list-of-apartments__list-item-content list-of-apartments__list-item-content--desktop">
-        <div class="list-of-apartments__list-item-content-row">
-          <div class="list-of-apartments__list-item-subtitle">{{ item.title }}</div>
-          <div class="list-of-apartments__list-item-price">от&nbsp;12&nbsp;млн&nbsp;₽</div>
+        <div class="list-of-apartments__list-item-content list-of-apartments__list-item-content--desktop">
+          <div class="list-of-apartments__list-item-content-row">
+            <div class="list-of-apartments__list-item-subtitle">{{ item.title }}</div>
+            <div v-if="item.min_price.length" class="list-of-apartments__list-item-price">{{ item.min_price }}</div>
+          </div>
+          <div class="list-of-apartments__list-item-content-row">
+            <div class="list-of-apartments__list-item-content-address">
+              <div class="list-of-apartments__list-item-content-address-location">{{ item.location }}</div>
+              <!-- пока закомментил, так как из API location и время приходят единым параметром -->
+              <!-- <div class="list-of-apartments__list-item-content-address-time">10 мин</div> -->
+            </div>
+            <div class="list-of-apartments__list-item-content-company-name">{{ item.company }}</div>
+          </div>
+          
+          <div class="list-of-apartments__list-item-content-row list-of-apartments__list-item-content-row--hidden list-of-apartments__list-item-content-row--column">
+            <div class="apartments-list-item__offers" v-html="item.offers"></div>
+          
+            <div class="list-of-apartments__list-item-content-result">
+              <div class="list-of-apartments__list-item-content-result-text">Срок сдачи:</div>
+              <div class="list-of-apartments__list-item-content-result-text list-of-apartments__list-item-content-result-text--bold">{{ item.nearest_deadline }}</div>
+            </div>
+          </div>
         </div>
-        <div class="list-of-apartments__list-item-content-row">
+        <div class="list-of-apartments__list-item-content list-of-apartments__list-item-content--mobile">
+          <div class="list-of-apartments__list-item-subtitle">Горки Парк</div>
+          <div class="list-of-apartments__list-item-content-company-name">Дарстрой</div>
           <div class="list-of-apartments__list-item-content-address">
-            <div class="list-of-apartments__list-item-content-address-location">{{ item.location }}</div>
-            <!-- пока закомментил, так как из API location и время приходят единым параметром -->
-            <!-- <div class="list-of-apartments__list-item-content-address-time">10 мин</div> -->
+            <div class="list-of-apartments__list-item-content-address-location">Бульвар Дмитрия Донского</div>
+            <div class="list-of-apartments__list-item-content-address-time">10 мин</div>
           </div>
-          <div class="list-of-apartments__list-item-content-company-name">{{ item.company }}</div>
-        </div>
-        
-        <div class="list-of-apartments__list-item-content-row list-of-apartments__list-item-content-row--hidden list-of-apartments__list-item-content-row--column apartments-list-item__offers">
-          <ul>
-            <li>
-              <span>Cтудия</span>
-              <span>от 3.5 млн ₽</span>
-            </li>
-            <li>
-              <span>Cтудия</span>
-              <span>от 3.5 млн ₽</span>
-            </li>
-            <li>
-              <span>Cтудия</span>
-              <span>от 3.5 млн ₽</span>
-            </li>
-            <li>
-              <span>Cтудия</span>
-              <span>от 3.5 млн ₽</span>
-            </li>
-          </ul>
-        
-          <div class="list-of-apartments__list-item-content-result">
-            <div class="list-of-apartments__list-item-content-result-text">Срок сдачи:</div>
-            <div class="list-of-apartments__list-item-content-result-text list-of-apartments__list-item-content-result-text--bold">{{ item.nearest_deadline }}</div>
+          <div class="list-of-apartments__list-item-content-btn-and-price">
+            <div class="list-of-apartments__list-item-btn">Позвонить</div>
+            <div class="list-of-apartments__list-item-price">от&nbsp;12&nbsp;млн&nbsp;₽</div>
           </div>
         </div>
+        <img class="list-of-apartments__list-item-img" :src="itemBgUrl" />
       </div>
-      <div class="list-of-apartments__list-item-content list-of-apartments__list-item-content--mobile">
-        <div class="list-of-apartments__list-item-subtitle">Горки Парк</div>
-        <div class="list-of-apartments__list-item-content-company-name">Дарстрой</div>
-        <div class="list-of-apartments__list-item-content-address">
-          <div class="list-of-apartments__list-item-content-address-location">Бульвар Дмитрия Донского</div>
-          <div class="list-of-apartments__list-item-content-address-time">10 мин</div>
-        </div>
-        <div class="list-of-apartments__list-item-content-btn-and-price">
-          <div class="list-of-apartments__list-item-btn">Позвонить</div>
-          <div class="list-of-apartments__list-item-price">от&nbsp;12&nbsp;млн&nbsp;₽</div>
-        </div>
-      </div>
-      <img class="list-of-apartments__list-item-img" :src="itemBgUrl" />
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -83,13 +68,20 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '~breakpoint-sass';
 @import '~@/scss/mixins/core';
 
 .apartments-list-item {
   display: block;
   width: 100%;
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 3s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
 }
 
 .apartments-list-item__container {
@@ -103,6 +95,16 @@ export default {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+
+  &:hover {
+    .list-of-apartments__list-item-content-row--hidden {
+      max-height: 391px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-color: #DEDEDE;
+      transition: max-height 0.25s ease-in, margin-top 0.25s ease-in, padding-top 0.25s ease-in, border-color 0.25s ease-in;
+    }
+  }
 
   @include breakpoint($desktop-1200-1920) {
     padding: 16px 16px 16px 16px;
@@ -176,10 +178,12 @@ export default {
 }
 
 .apartments-list-item__offers {
+  padding-bottom: 20px;
+  width: 100%;
+
   ul {
     display: block;
     width: 100%;
-    padding-bottom: 20px;
   }
 
   li {
