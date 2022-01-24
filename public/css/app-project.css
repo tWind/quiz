@@ -1229,34 +1229,6 @@
     display: none;
   }
 }
-.list-of-apartments__list-item-container {
-  position: relative;
-  overflow: hidden;
-  height: 620px;
-  border-radius: 30px 30px 30px 30px;
-  padding: 24px 24px 24px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-}
-@media (min-width: 1440px) and (max-width: 1920px) {
-  .list-of-apartments__list-item-container {
-    padding: 16px 16px 16px 16px;
-  }
-}
-@media (max-width: 960px) {
-  .list-of-apartments__list-item-container {
-    padding: 16px 16px 16px 16px;
-    height: 430px;
-  }
-}
-@media (max-width: 480px) {
-  .list-of-apartments__list-item-container {
-    padding: 13px 13px 13px 13px;
-  }
-}
 .list-of-apartments__list-item-content {
   background: #FFFFFF;
   padding: 24px 24px 24px 24px;
@@ -1324,16 +1296,6 @@
 .list-of-apartments__list-item-content-row:first-child {
   margin-top: 0;
 }
-.list-of-apartments__list-item-content-flat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 0 0 20px;
-}
-.list-of-apartments__list-item-content-flat:last-child {
-  margin-bottom: 0;
-}
 .list-of-apartments__list-item-content-result {
   display: flex;
   justify-content: flex-start;
@@ -1354,14 +1316,7 @@
   font: 500 14px/1.2 "Muller", sans-serif;
   color: #202020;
 }
-.list-of-apartments__list-item-content-flat-col--left {
-  font: 400 14px/1.2 "Muller", sans-serif;
-  color: #ED625D;
-}
-.list-of-apartments__list-item-content-flat-col--right {
-  font: 500 14px/1.2 "Muller", sans-serif;
-  color: #000000;
-}
+
 .list-of-apartments__list-item-subtitle {
   font: 700 20px/1.35 "Muller", sans-serif;
   color: #202020;
