@@ -1,7 +1,7 @@
 
 
 const constants = {
-  API_QUIZ_URL: 'api/?controller=Quiz&method=getQuizData&utm=pehra',
+  API_QUIZ_URL: 'api/?controller=Quiz&method=getQuizData&utm=',
   API_COMPILATION_URL: 'api/?method=sendOrder',
   //  TODO: пути для локальной разработки. Убрать перед релизом.
   // API_QUIZ_URL: 'https://liner.mirrors.dev.southmedia.ru/api/?controller=Quiz&method=getByUtm&utm=pehra',
