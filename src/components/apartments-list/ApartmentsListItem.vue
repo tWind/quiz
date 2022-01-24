@@ -1,6 +1,6 @@
 <template>
   <div class="apartments-list-item">
-    <div class="list-of-apartments__list-item-container">
+    <div class="apartments-list-item__container">
       <div class="apartments-list-item__tags">
         <div v-for="tag in item.tags" :key="tag.index" class="apartments-list-item__tag">
           <span>{{ tag }}</span>
@@ -20,35 +20,27 @@
           </div>
           <div class="list-of-apartments__list-item-content-company-name">{{ item.company }}</div>
         </div>
-        <div class="list-of-apartments__list-item-content-row list-of-apartments__list-item-content-row--hidden list-of-apartments__list-item-content-row--column">
-          <div class="list-of-apartments__list-item-content-flat">
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--left">Cтудия</div>
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--right">от 3.5 млн ₽</div>
-          </div>
-          <div class="list-of-apartments__list-item-content-flat">
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--left">Cтудия</div>
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--right">от 3.5 млн ₽</div>
-          </div>
-          <div class="list-of-apartments__list-item-content-flat">
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--left">Cтудия</div>
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--right">от 3.5 млн ₽</div>
-          </div>
-          <div class="list-of-apartments__list-item-content-flat">
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--left">Cтудия</div>
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--right">от 3.5 млн ₽</div>
-          </div>
-          <div class="list-of-apartments__list-item-content-flat">
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--left">Cтудия</div>
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--right">от 3.5 млн ₽</div>
-          </div>
-          <div class="list-of-apartments__list-item-content-flat">
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--left">Cтудия</div>
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--right">от 3.5 млн ₽</div>
-          </div>
-          <div class="list-of-apartments__list-item-content-flat">
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--left">Cтудия</div>
-            <div class="list-of-apartments__list-item-content-flat-col list-of-apartments__list-item-content-flat-col--right">от 3.5 млн ₽</div>
-          </div>
+        
+        <div class="list-of-apartments__list-item-content-row list-of-apartments__list-item-content-row--hidden list-of-apartments__list-item-content-row--column apartments-list-item__offers">
+          <ul>
+            <li>
+              <span>Cтудия</span>
+              <span>от 3.5 млн ₽</span>
+            </li>
+            <li>
+              <span>Cтудия</span>
+              <span>от 3.5 млн ₽</span>
+            </li>
+            <li>
+              <span>Cтудия</span>
+              <span>от 3.5 млн ₽</span>
+            </li>
+            <li>
+              <span>Cтудия</span>
+              <span>от 3.5 млн ₽</span>
+            </li>
+          </ul>
+        
           <div class="list-of-apartments__list-item-content-result">
             <div class="list-of-apartments__list-item-content-result-text">Срок сдачи:</div>
             <div class="list-of-apartments__list-item-content-result-text list-of-apartments__list-item-content-result-text--bold">{{ item.nearest_deadline }}</div>
@@ -98,6 +90,35 @@ export default {
 .apartments-list-item {
   display: block;
   width: 100%;
+}
+
+.apartments-list-item__container {
+  position: relative;
+  overflow: hidden;
+  height: 620px;
+  border-radius: 30px 30px 30px 30px;
+  padding: 24px 24px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+
+  @include breakpoint($desktop-1200-1920) {
+    padding: 16px 16px 16px 16px;
+  }
+
+  @include breakpoint($desktop-1440) {
+    height: 430px;
+  }
+
+  @include breakpoint($tablet-960) {
+    padding: 16px 16px 16px 16px;
+  }
+
+  @include breakpoint($mobile-480) {
+    padding: 13px 13px 13px 13px;
+  }
 }
 
 .apartments-list-item__tags {
@@ -150,6 +171,37 @@ export default {
 
     @include breakpoint($tablet-960) {
       font: 400 10px/1 $font-default;
+    }
+  }
+}
+
+.apartments-list-item__offers {
+  ul {
+    display: block;
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 0 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    span {
+      &:first-child {
+        font: 400 14px/1.2 "Muller", sans-serif;
+        color: #ED625D;
+      }
+      &:last-child {
+        font: 500 14px/1.2 "Muller", sans-serif;
+        color: #000000;
+      }
     }
   }
 }
