@@ -11,7 +11,7 @@ class API {
         // если ответ от сервера успешен, но мы должны обработать его как ошибку
         // например, не найден активный квиз, то передаем ответ в обработчик
         if(!response.data.status) {
-          return Promise.reject(errorHandler(response));
+          return Promise.reject(errorHandler(response.data.error));
         }
 
         return response;
