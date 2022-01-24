@@ -20,7 +20,7 @@
           :class="{ 'popup__nav-item--disable': navDisabled }"
           @click="prevButtonClick()"
         >
-          <div class="popup__nav-item-text">Назад</div>
+          <div class="popup__nav-item-text">{{ appText.button.prev }}</div>
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('quiz', ['quizVariants']),
+    ...mapGetters('quiz', ['quizVariants', 'appText']),
   },
   methods: {
     ...mapActions('quiz', ['loadSelectionLead']),

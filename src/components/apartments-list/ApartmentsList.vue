@@ -1,8 +1,8 @@
 <template>
   <div class="apartments-list">
     <div class="apartments-list__container">
-      <h1 class="apartments-list__title">Спасибо</h1>
-      <p class="apartments-list__descr">Менеджер свяжется с&nbsp;вами и&nbsp;подготовит<br>подборку по&nbsp;вашим параметрам</p>
+      <h1 class="apartments-list__title">{{ appText.thanks.title }}</h1>
+      <p class="apartments-list__descr">{{ appText.thanks.text }}</p>
 
       <div class="list-of-apartments__list-wrapper">
         <div class="list-of-apartments__list-header">
@@ -22,7 +22,9 @@
 
         <div class="apartments-list__content">
           <div class="apartments-list__item" v-for="object in objectsCompilation" :key="object.index">
-            <apartments-list-item :item="object" />
+            <transition name="fade">
+              <apartments-list-item :item="object" />
+            </transition>
           </div>
         </div>
       </div>
@@ -39,7 +41,7 @@ import ApartmentsListItem from './ApartmentsListItem';
 export default {
   name: 'ApartmentsList',
   computed: {
-    ...mapGetters('quiz', ['objectsCompilation', 'socketChannel']),
+    ...mapGetters('quiz', ['objectsCompilation', 'socketChannel', 'appText']),
   },
   sockets: {
     connect: function () {
@@ -47,7 +49,6 @@ export default {
     },
     'changed-compilation': function(data) {
       this.setCompilation(data.compilation);
-      console.log(`updating compilation ${data.compilation}`);
     },
   },
   methods: {
@@ -265,5 +266,12 @@ export default {
       }
     }
   }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
