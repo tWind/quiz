@@ -2,6 +2,7 @@
   <div class="apartments-list">
     <div class="apartments-list__container">
       <h1 class="apartments-list__title">{{ appText.thanks.title }}</h1>
+
       <p class="apartments-list__descr">{{ appText.thanks.text }}</p>
 
       <div class="list-of-apartments__list-wrapper">
@@ -9,6 +10,7 @@
           <div class="list-of-apartments__list-header-col list-of-apartments__list-header-col--left">
             <span class="list-of-apartments__list-header-text list-of-apartments__list-header-text--desktop">Квартиры/аппартаменты:</span>
             <span class="list-of-apartments__list-header-text list-of-apartments__list-header-text--mobile">Кв./аппарт.:</span>
+
             <span class="list-of-apartments__list-header-text list-of-apartments__list-header-text--red">{{ objectsCompilation.length }} варианта</span>
           </div>
           
@@ -20,11 +22,11 @@
           </div>
         </div>
 
-        <div class="apartments-list__content">
-          <div class="apartments-list__item" v-for="object in objectsCompilation" :key="object.index">
-            <apartments-list-item :item="object" />
+        <transition-group class="apartments-list__content" tag="div" name="list-fade" appear> 
+          <div class="apartments-list__item" v-for="(object, index) in objectsCompilation" :key="index">     
+            <apartments-list-item :item="object" :key="index" />
           </div>
-        </div>
+        </transition-group>
       </div>
     </div>
   </div>
@@ -264,5 +266,15 @@ export default {
       }
     }
   }
+}
+
+.list-fade-enter-active, .list-fade-leave-active {
+  transition: all 1.5s;
+}
+.list-fade-enter, .list-fade-leave-to {
+  opacity: 0;
+}
+.list-fade-move {
+  transition: transform 1s;
 }
 </style>

@@ -1,147 +1,161 @@
 [
-  {
-      "order_id": "132458",
-      "order_points": 50,
-      "order_user": {
-          "id": "19",
-          "name": "КлючАвто",
-          "approve_c": null
-      },
-      "order_negative": [],
-      "order_positive": [
-          "Исключить Московскую область",
-          "1 к. 4 млн руб."
-      ],
-      "img": [
-          "/upload/resize_cache/iblock/df1/500_500_0/6yi1j5zfct2mojt1dzhzmbwopk3zmv9v.jpg",
-          "/upload/resize_cache/iblock/a86/500_500_0/7izbxrt2x4l30gl34vutnekk3h7a4riq.jpg",
-          "/upload/resize_cache/iblock/20d/500_500_0/o4q53l1l34tvpba89ipc2hsuml3lwdip.png"
-      ],
-      "title": "ЖК \"Кленовые Аллеи\"",
-      "company": "МИЦ",
-      "location": "м. «Ольховая»  (10 мин. на авто)",
-      "phone": "79391114256",
-      "phone_cc": "74951852391",
-      "script_cc": "132415",
-      "tags": [
-          "Семейная ипотека",
-          "Материнский капитал",
-          "Военная ипотека"
-      ],
-      "offers": "<table class=\"w-100\">\r\n<tbody>\r\n<tr>\r\n\t<td>\r\n\t\t Студии\r\n\t</td>\r\n\t<td>\r\n\t\t от 22м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 5,5 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td>\r\n\t\t 1комн.\r\n\t</td>\r\n\t<td>\r\n\t\t от 31,7м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 4 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td>\r\n\t\t 2комн. евро\r\n\t</td>\r\n\t<td>\r\n\t\t от 39м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 6,8 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 2комн.\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 51м<sup>2</sup><br>\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 8,5 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 3комн. евро\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 55м<sup>2</sup><br>\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 9,1 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 3комн.\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 68м<sup>2</sup><br>\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 10,8 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 4комн. евро\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 105м<sup>2</sup><br>\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 16,8 млн руб.\r\n\t</td>\r\n</tr>\r\n</tbody>\r\n</table>",
-      "nearest_deadline": "Сдан",
-      "location_is_good": true,
-      "price_is_good": true,
-      "deadline_is_good": true,
-      "cc_description": "<br><br>"
-  },
-  {
-      "order_id": "222413",
-      "order_points": 10,
-      "order_user": {
-          "id": "19",
-          "name": "КлючАвто",
-          "approve_c": null
-      },
-      "order_negative": [
-          "1 к. 4 млн руб."
-      ],
-      "order_positive": [
-          "Исключить Московскую область"
-      ],
-      "img": [
-          "/upload/resize_cache/iblock/46c/500_500_0/d3p4whzsn1ord94eg5zmdln5pry976s5.jpg",
-          "/upload/resize_cache/iblock/c82/500_500_0/fs4jfr0q3vilrf3c1v0qmnqyetnu5ode.jpg",
-          "/upload/resize_cache/iblock/b88/500_500_0/r51wxbj6vnobwltii1v01nmqtxg7k2qp.jpg"
-      ],
-      "title": "ЖК \"Профит\"",
-      "company": "Гранель",
-      "location": "м. «Нижегородская» (5 минут пешком)",
-      "phone": "79391114256",
-      "phone_cc": "79666667964",
-      "script_cc": "10530",
-      "tags": [
-          "Семейная ипотека",
-          "Материнский капитал",
-          "Военная ипотека"
-      ],
-      "offers": "<table>\r\n<tbody>\r\n<tr>\r\n\t<td>\r\n\t\t Студии\r\n\t</td>\r\n\t<td>\r\n\t\t от 25,6м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 7,1 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td>\r\n\t\t 1к.\r\n\t</td>\r\n\t<td>\r\n\t\t от 41,6м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 9,7&nbsp;млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 2 комн. евро\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 32,4м<sup>2</sup><br>\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 8,3&nbsp;млн руб.<br>\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td>\r\n\t\t 2к.\r\n\t</td>\r\n\t<td>\r\n\t\t от 62,3м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 13,4&nbsp;млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td>\r\n\t\t 3к. евро\r\n\t</td>\r\n\t<td>\r\n\t\t от 53,1м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 11,4&nbsp;млн руб.\r\n\t</td>\r\n</tr>\r\n</tbody>\r\n</table>\r\n <br>",
-      "nearest_deadline": "2 кв. 2023",
-      "location_is_good": true,
-      "price_is_good": false,
-      "deadline_is_good": true,
-      "cc_description": "<br><br>"
-  },
-  {
-      "order_id": "56505",
-      "order_points": 10,
-      "order_user": {
-          "id": "19",
-          "name": "КлючАвто",
-          "approve_c": null
-      },
-      "order_negative": [
-          "1 к. 4 млн руб."
-      ],
-      "order_positive": [
-          "Исключить Московскую область"
-      ],
-      "img": [
-          "/upload/resize_cache/iblock/0f6/500_500_0/um117sntsj6f84pf0ku744r5ij4c40xu.jpg",
-          "/upload/resize_cache/iblock/ec7/500_500_0/nykzegxsr5br2wr2s65pzqrqmk154p2n.jpg",
-          "/upload/resize_cache/iblock/003/500_500_0/36ntp6x34426e32dzx1u3cfw87u44nck.jpg"
-      ],
-      "title": "ЖК \"Сердце Столицы\"",
-      "company": "Донстрой",
-      "location": "м. «Шелепиха»  (7 минут пешком)",
-      "phone": "79391114256",
-      "phone_cc": "79666664157",
-      "script_cc": "108327",
-      "tags": [
-          "Ипотека от 0,1%"
-      ],
-      "offers": "<table class=\"w-100\">\r\n<tbody>\r\n<tr>\r\n\t<td>\r\n\t\t Студии\r\n\t</td>\r\n\t<td>\r\n\t\t от 28,4м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 12,4 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td>\r\n\t\t 1к.\r\n\t</td>\r\n\t<td>\r\n\t\t от 41,1м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 14,3 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td>\r\n\t\t 2к.\r\n\t</td>\r\n\t<td>\r\n\t\t от 65,3м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 21,3&nbsp;млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 3к.\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 83м<sup>2</sup><br>\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 26,5&nbsp;млн руб.<br>\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 4к.\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 109,3м<sup>2</sup>&nbsp;\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 36 млн руб.<br>\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 5к.\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 143м<sup>2</sup><br>\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 75 млн руб.<br>\r\n\t</td>\r\n</tr>\r\n</tbody>\r\n</table>",
-      "nearest_deadline": "4 кв. 2024",
-      "location_is_good": true,
-      "price_is_good": false,
-      "deadline_is_good": true,
-      "cc_description": "<br><br>"
-  },
-  {
-      "order_id": "133347",
-      "order_points": 10,
-      "order_user": {
-          "id": "19",
-          "name": "КлючАвто",
-          "approve_c": null
-      },
-      "order_negative": [
-          "1 к. 4 млн руб."
-      ],
-      "order_positive": [
-          "Исключить Московскую область"
-      ],
-      "img": [
-          "/upload/resize_cache/iblock/cf7/500_500_0/68dlp1vdtfwxx5nzh4cvm6b5wd8sat70.jpg",
-          "/upload/resize_cache/iblock/c72/500_500_0/fmu6iemafgxsmsmqz93c70kxzitwfbuq.jpg",
-          "/upload/resize_cache/iblock/4fd/500_500_0/0xxzbilkkvly12auk13fg5wmkyoz1wsp.jpg"
-      ],
-      "title": "ЖК \"Вереск\"",
-      "company": "МИЦ",
-      "location": "м. \"Полежаевская\" (15 мин. пешком)",
-      "phone": "79391114256",
-      "phone_cc": "74953239789",
-      "script_cc": "133340",
-      "tags": [
-          "Семейная ипотека",
-          "Материнский капитал",
-          "Рассрочка 0%"
-      ],
-      "offers": "<table class=\"w-100\">\r\n<tbody>\r\n<tr>\r\n\t<td>\r\n\t\t Студии\r\n\t</td>\r\n\t<td>\r\n\t\t от 25м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 9,4 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td>\r\n\t\t 1к.\r\n\t</td>\r\n\t<td colspan=\"2\">\r\n\t\t распроданы\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td>\r\n\t\t 2к.\r\n\t</td>\r\n\t<td>\r\n\t\t от 59м<sup>2</sup>\r\n\t</td>\r\n\t<td>\r\n\t\t от 19 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 3к. евро\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 68м<sup>2</sup><br>\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 21,2 млн руб.\r\n\t</td>\r\n</tr>\r\n<tr>\r\n\t<td colspan=\"1\">\r\n\t\t 3к.\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 79м<sup>2</sup><br>\r\n\t</td>\r\n\t<td colspan=\"1\">\r\n\t\t от 23,5 млн руб.\r\n\t</td>\r\n</tr>\r\n</tbody>\r\n</table>",
-      "nearest_deadline": "2 кв. 2023",
-      "location_is_good": true,
-      "price_is_good": false,
-      "deadline_is_good": true,
-      "cc_description": "<br><br>"
-  }
+    {
+        "order_id": "133069",
+        "order_points": 80,
+        "order_user": {
+            "id": "19",
+            "name": "КлючАвто",
+            "approve_c": null
+        },
+        "order_negative": [
+            null,
+            "1 к. 3 млн руб."
+        ],
+        "order_positive": [
+            "2023 г.",
+            "С отделкой"
+        ],
+        "img": [
+            "/upload/resize_cache/iblock/686/500_500_0/1lfdbz09m5qfdqbnh5e5siej87jvwgsu.jpg",
+            "/upload/resize_cache/iblock/d30/500_500_0/km43b3uy3335zt1m9v61yeqoezfy8y2m.jpg",
+            "/upload/resize_cache/iblock/686/500_500_0/1lfdbz09m5qfdqbnh5e5siej87jvwgsu.jpg"
+        ],
+        "title": "ЖК \"Южное Бунино\"",
+        "company": "МИЦ",
+        "location": "м. «Коммунарка»  (10 мин. на авто)",
+        "phone": "79391114256",
+        "phone_cc": "74953203310",
+        "script_cc": "133057",
+        "tags": [
+            "Ипотека",
+            "Материнский капитал"
+        ],
+        "offers": "<ul>\r\n<li>\r\n<span>Студии</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>1-комнатные</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n</ul>",
+        "nearest_deadline": "2 кв. 2022",
+        "location_is_good": true,
+        "price_is_good": false,
+        "deadline_is_good": true,
+        "cc_description": "<br><br>",
+        "min_price": "от 4.8 млн. руб."
+    },
+    {
+        "order_id": "146152",
+        "order_points": 80,
+        "order_user": {
+            "id": "19",
+            "name": "КлючАвто",
+            "approve_c": null
+        },
+        "order_negative": [
+            null,
+            "1 к. 3 млн руб."
+        ],
+        "order_positive": [
+            "2023 г.",
+            "С отделкой"
+        ],
+        "img": [
+            "/upload/resize_cache/iblock/bf0/500_500_0/3ldjyxlvdzu97fw3way6me422nbxr5ro.jpg",
+            "/upload/resize_cache/iblock/fee/500_500_0/949h0wbiq23e4qseby4ek1lj32xgpea8.jpg",
+            "/upload/resize_cache/iblock/9ce/500_500_0/06t6vvot1307qq1dyygqr23g40m2pouk.jpg"
+        ],
+        "title": "ЖК \"Императорские Мытищи\"",
+        "company": "Гранель",
+        "location": "метро Медведково (15 мин на транспорте)",
+        "phone": "79391114256",
+        "phone_cc": "79666668417",
+        "script_cc": "10590",
+        "tags": [
+            "Семейная ипотека",
+            "Материнский капитал",
+            "Военная ипотека"
+        ],
+        "offers": "<ul>\r\n<li>\r\n<li>\r\n<span>2-комнатные</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>3-комнатные</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>Евро-двушки</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>Евро-трешки</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n</ul>",
+        "nearest_deadline": "Сдан",
+        "location_is_good": true,
+        "price_is_good": false,
+        "deadline_is_good": true,
+        "cc_description": "<br><br>",
+        "min_price": "от 16.2 млн. руб."
+    },
+    {
+        "order_id": "222425",
+        "order_points": 80,
+        "order_user": {
+            "id": "19",
+            "name": "КлючАвто",
+            "approve_c": null
+        },
+        "order_negative": [
+            null,
+            "1 к. 3 млн руб."
+        ],
+        "order_positive": [
+            "2023 г.",
+            "С отделкой"
+        ],
+        "img": [
+            "/upload/resize_cache/iblock/078/500_500_0/zv198uksaha3nw1p46jz0cqq6ighlfjz.jpg",
+            "/upload/resize_cache/iblock/5dc/500_500_0/vcb7m7e2kyn3u01x3zv8oytseb66gtz5.jpg",
+            "/upload/resize_cache/iblock/2bb/500_500_0/v1a030yo1g3qms4xo8sx80ssahd2kl39.png"
+        ],
+        "title": "ЖК \"Бригантина\"",
+        "company": "Гранель",
+        "location": "м. «Ховрино» (20 мин. на авто)",
+        "phone": "79391114256",
+        "phone_cc": "79666667986",
+        "script_cc": "10610",
+        "tags": [
+            "Семейная ипотека",
+            "Материнский капитал",
+            "Военная ипотека"
+        ],
+        "offers": "<ul>\r\n<li>\r\n<span>Студии</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>1-комнатные</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>2-комнатные</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>3-комнатные</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>Евро-двушки</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>Евро-трешки</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n</ul>",
+        "nearest_deadline": "4 кв. 2022",
+        "location_is_good": true,
+        "price_is_good": false,
+        "deadline_is_good": true,
+        "cc_description": "<br><br>",
+        "min_price": "от 3.5 млн. руб."
+    },
+    {
+        "order_id": "260614",
+        "order_points": 80,
+        "order_user": {
+            "id": "19",
+            "name": "КлючАвто",
+            "approve_c": null
+        },
+        "order_negative": [
+            null,
+            "1 к. 3 млн руб."
+        ],
+        "order_positive": [
+            "2023 г.",
+            "С отделкой"
+        ],
+        "img": [
+            "/upload/resize_cache/iblock/3de/500_500_0/1exe9w1qakhqcdbez9nhzcq7ge60ker2.jpg",
+            "/upload/resize_cache/iblock/03c/500_500_0/oti15tphehmiarp5ymf7yxc12nuzhkwe.jpg",
+            "/upload/resize_cache/iblock/481/500_500_0/g6ob8ze9qxqyy2xufoxjct4lckpn53n1.jpg"
+        ],
+        "title": "ЖК \"Тринити-2\"",
+        "company": "Гранель",
+        "location": "м. «Верхние Лихоборы» (2 мин. пешком)",
+        "phone": "79391114256",
+        "phone_cc": "79666668706",
+        "script_cc": "10535",
+        "tags": [
+            "Семейная ипотека",
+            "Материнский капитал",
+            "Военная ипотека "
+        ],
+        "offers": "<ul>\r\n<li>\r\n<span>Студии</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>1-комнатные</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>2-комнатные</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>3-комнатные</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>Евро-двушки</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n<li>\r\n<span>Евро-трешки</span>\r\n<span>от 2.5 млн. руб.</span>\r\n</li>\r\n</ul>",
+        "nearest_deadline": "3 кв. 2023",
+        "location_is_good": true,
+        "price_is_good": false,
+        "deadline_is_good": true,
+        "cc_description": "<br><br>",
+        "min_price": "от 12 млн. руб."
+    }
 ]
