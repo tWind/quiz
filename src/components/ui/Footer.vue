@@ -2,7 +2,9 @@
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__copyright">@2021 Лайнер</div>
-      <a class="footer__text-link" :href="appText.link.privacy">Политика конфиденциальности</a>
+      <router-link to="/privacy-policy" v-slot="{ href }">
+        <a class="footer__text-link" :href="href" target="_blank">Политика конфиденциальности</a>
+      </router-link>
       <a class="footer__tel" :href="`tel:+${appText.phone.clear}`">{{ appText.phone.text }}</a>
       <base-button class="footer__btn base-button--white"
         v-if="button"

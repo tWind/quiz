@@ -40,24 +40,9 @@ import Info from '@/components/ui/Info.vue';
 import Counter from '@/components/ui/Counter.vue';
 import BaseButton from '@/components/ui/BaseButton.vue';
 
-const COUNTERS = [
-  {
-    number: 13450,
-    title: 'квартир в&nbsp;продаже',
-  },
-  {
-    number: 1234,
-    title: 'новостроек в&nbsp;базе',
-  },
-]
 
 export default {
   name: 'IndexView',
-  data() {
-    return {
-      counters: COUNTERS,
-    }
-  },
   computed: {
     ...mapGetters('quiz', ['appText'])
   },

@@ -115,18 +115,24 @@ export default {
     cursor: pointer;
     transition: all 0.2s ease;
 
+    &:hover {
+      border: 1px solid $color-black-2;
+      background: $color-black-2;
+      color: $color-white;
+    }
+
     @include breakpoint($desktop-large) {
       line-height: 90px;
     }
       
     @include breakpoint($tablet-960) {
       font: 400 14px/50px $font-default;
-    }
-
-    &:hover {
-      border: 1px solid $color-black-2;
-      background: $color-black-2;
-      color: $color-white;
+      
+      &:hover {
+        border: 1px solid $color-white;
+        background: $color-white;
+        color: $color-black-2;
+      }
     }
   }
 }

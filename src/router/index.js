@@ -5,6 +5,7 @@ import guards from './guards';
 
 import IndexView from '@/views/IndexView';
 import ThanksView from '@/views/ThanksView';
+import PrivacyPolicy from '@/views/PrivacyPolicyView';
 import ErrorView from '@/views/ErrorView';
 
 Vue.use(Router);
@@ -28,6 +29,11 @@ const router = new Router({
       path: '/error',
       name: 'error',
       component: ErrorView,
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy-policy',
+      component: PrivacyPolicy,
     },
     {
       path: '*',
