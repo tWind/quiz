@@ -49,6 +49,8 @@ export default {
     },
   },
   created() {
+    document.body.classList.remove('modal-opened');
+    
     this.$root.$on('layout:showModal', (data) => {
       this.showModal(data);
       document.body.classList.add('modal-opened');

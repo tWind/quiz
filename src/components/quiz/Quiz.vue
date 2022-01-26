@@ -61,6 +61,7 @@ export default {
     ...mapMutations('quiz', ['setRequestInfo']),
     selectCallback(answer) {
       this.userRequestInfo.tags.push(`${ answer.id }`);
+      console.log(this.userRequestInfo.tags);
       this.userRequestInfo.log.push(`${ this.currentVariant.TITLE }: ${ answer.result }`);
   
       this.navDisabled = false;
@@ -179,7 +180,7 @@ export default {
   margin: 0 auto 50px;
 
   @include breakpoint($desktop-large) {
-    margin: 0 0 154px;
+    margin: 0 auto 154px;
   }
       
   @include breakpoint($tablet-960) {
