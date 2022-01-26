@@ -51,9 +51,11 @@ export default {
   created() {
     this.$root.$on('layout:showModal', (data) => {
       this.showModal(data);
+      document.body.classList.add('modal-opened');
     });
     this.$root.$on('layout:closeModal', () => {
       this.closeModal();
+      document.body.classList.remove('modal-opened');
     });
   },
   components: {
