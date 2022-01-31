@@ -16,8 +16,14 @@ export default {
     }
   },
   computed: {
-    answerId() {
-      return `var-id${this.answer.TAGS[0].ID}`;
+    answerTags() {
+      let tags = [];
+
+      this.answer.TAGS.forEach(tag => {
+        tags.push(tag.ID);
+      });
+
+      return tags;
     }
   },
   methods: {
@@ -26,6 +32,7 @@ export default {
         code: this.answer.NEXT_QUESTION,
         id: this.answer.TAGS[0].ID,
         result: this.answer.TITLE,
+        tags: this.answerTags,
       });
     }
   },

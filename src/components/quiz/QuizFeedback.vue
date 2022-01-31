@@ -19,7 +19,7 @@
         <base-button @click="submitFeedback" :disabled="!requestAvailable">{{ appText.button.send }}</base-button>
 
         <div class="popup__form-descr">Отправляя заявку вы соглашаетесь с условиями 
-          <router-link to="/privacy-policy" v-slot="{ href }">
+          <router-link to="/privacy-policy" v-slot="{ href }" custom>
             <a class="quiz-feedback__link" :href="href" target="_blank">политики конфеденциальности</a>
           </router-link></div>
       </div>

@@ -2,7 +2,6 @@
   <div class="apartments-list">
     <div class="apartments-list__container">
       <h1 class="apartments-list__title">{{ appText.thanks.title }}</h1>
-
       <p class="apartments-list__descr">{{ appText.thanks.text }}</p>
 
       <div class="list-of-apartments__list-wrapper">
@@ -10,7 +9,6 @@
           <div class="list-of-apartments__list-header-col list-of-apartments__list-header-col--left">
             <span class="list-of-apartments__list-header-text list-of-apartments__list-header-text--desktop">Квартиры/аппартаменты:</span>
             <span class="list-of-apartments__list-header-text list-of-apartments__list-header-text--mobile">Кв./аппарт.:</span>
-
             <span class="list-of-apartments__list-header-text list-of-apartments__list-header-text--red">{{ objectsCompilation.length }} варианта</span>
           </div>
           
@@ -23,8 +21,8 @@
         </div>
 
         <transition-group class="apartments-list__content" tag="div" name="list-fade" appear> 
-          <div class="apartments-list__item" v-for="(object, index) in objectsCompilation" :key="index">     
-            <apartments-list-item :item="object" :key="index" />
+          <div class="apartments-list__item" v-for="object in objectsCompilation" :key="object.order_id">   
+            <apartments-list-item :item="object" :key="object.order_id" />
           </div>
         </transition-group>
       </div>
@@ -48,11 +46,21 @@ export default {
       console.log('socket connected')
     },
     'changed-compilation': function(data) {
-      this.setCompilation(data.compilation);
+      this.updateCompilation(data.compilation);
     },
   },
   methods: {
     ...mapMutations('quiz', ['setCompilation']),
+    updateCompilation(loadedCompilation) {
+      const compilation = this.objectsCompilation.filter(({ order_id: id1 }) => loadedCompilation.some(({ order_id: id2 }) => id2 === id1)),
+        diffCompilation = loadedCompilation.filter(({ order_id: id1 }) => compilation.some(({ order_id: id2 }) => id2 !== id1));
+
+      this.setCompilation(compilation)
+
+      setTimeout(() => {
+        this.setCompilation([...compilation, ...diffCompilation]);
+      }, 2000);
+    },
   },
   mounted() {
     this.$socket.emit('join', this.socketChannel);
@@ -273,8 +281,5 @@ export default {
 }
 .list-fade-enter, .list-fade-leave-to {
   opacity: 0;
-}
-.list-fade-move {
-  transition: transform 1s;
 }
 </style>

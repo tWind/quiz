@@ -60,8 +60,9 @@ export default {
     ...mapActions('quiz', ['loadSelectionLead']),
     ...mapMutations('quiz', ['setRequestInfo']),
     selectCallback(answer) {
-      this.userRequestInfo.tags.push(`${ answer.id }`);
+      this.userRequestInfo.tags.push(`${ answer.tags }`);
       console.log(this.userRequestInfo.tags);
+      //debugger; // eslint-disable-line
       this.userRequestInfo.log.push(`${ this.currentVariant.TITLE }: ${ answer.result }`);
   
       this.navDisabled = false;
@@ -86,8 +87,6 @@ export default {
       // собираем теги и ответы в строки - необходимый формат для запроса
       this.userRequestInfo.tags = this.userRequestInfo.tags.join(',');
       this.userRequestInfo.log = this.userRequestInfo.log.join('<br>');
-
-      console.log(this.userRequestInfo);
 
       this.setRequestInfo(this.userRequestInfo);
 
