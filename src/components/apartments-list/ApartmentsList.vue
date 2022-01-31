@@ -53,7 +53,7 @@ export default {
     ...mapMutations('quiz', ['setCompilation']),
     updateCompilation(loadedCompilation) {
       const compilation = this.objectsCompilation.filter(({ order_id: id1 }) => loadedCompilation.some(({ order_id: id2 }) => id2 === id1)),
-        diffCompilation = loadedCompilation.filter(({ order_id: id1 }) => compilation.some(({ order_id: id2 }) => id2 !== id1));
+        diffCompilation = loadedCompilation.filter(({ order_id: id1 }) => !compilation.some(({ order_id: id2 }) => id2 === id1));
 
       this.setCompilation(compilation)
 
