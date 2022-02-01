@@ -192,7 +192,7 @@ export default {
   flex-shrink: 0;
   margin: 0 .5rem .5rem;
 
-  @include breakpoint($mobile-480) {
+  @include breakpoint($tablet-960) {
     max-width: 100%;
     flex-basis: 100%;
     margin: 0 0 .5rem;
