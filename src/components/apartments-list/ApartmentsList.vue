@@ -20,11 +20,21 @@
           </div>
         </div>
 
-        <transition-group class="apartments-list__content" tag="div" name="list-fade" appear> 
-          <div class="apartments-list__item" v-for="object in objectsCompilation" :key="object.order_id">   
-            <apartments-list-item :item="object" :key="object.order_id" />
+        <div class="apartments-list__content" :style="{ height: listContainerHeight }">
+          <transition-group class="apartments-list__items"
+            tag="div"
+            name="list-fade"
+            ref="listFadeItems"
+            appear
+            @enter="setContainerHeight"
+            @before-leave="setContainerHeight"
+            @after-leave="setContainerHeight"
+          > 
+          <div class="apartments-list__item" v-for="object in objectsCompilation" :key="object.object_id">   
+            <apartments-list-item :item="object" :key="object.object_id" />
           </div>
         </transition-group>
+        </div>
       </div>
     </div>
   </div>
@@ -38,6 +48,11 @@ import ApartmentsListItem from './ApartmentsListItem';
 
 export default {
   name: 'ApartmentsList',
+  data() {
+    return {
+      listContainerHeight: 'auto',
+    }
+  },
   computed: {
     ...mapGetters('quiz', ['objectsCompilation', 'socketChannel', 'appText']),
   },
@@ -52,14 +67,18 @@ export default {
   methods: {
     ...mapMutations('quiz', ['setCompilation']),
     updateCompilation(loadedCompilation) {
-      const compilation = this.objectsCompilation.filter(({ order_id: id1 }) => loadedCompilation.some(({ order_id: id2 }) => id2 === id1)),
-        diffCompilation = loadedCompilation.filter(({ order_id: id1 }) => !compilation.some(({ order_id: id2 }) => id2 === id1));
+      const compilation = this.objectsCompilation.filter(({ object_id: id1 }) => loadedCompilation.some(({ object_id: id2 }) => id2 === id1)),
+        diffCompilation = loadedCompilation.filter(({ object_id: id1 }) => !compilation.some(({ object_id: id2 }) => id2 === id1));
 
-      this.setCompilation(compilation)
+      this.setCompilation(compilation);
 
       setTimeout(() => {
-        this.setCompilation([...compilation, ...diffCompilation]);
-      }, 2000);
+        this.setCompilation([...diffCompilation, ...compilation]);
+      }, 500);
+    },
+    setContainerHeight() {
+      if(this.$refs.listFadeItems)
+        this.listContainerHeight = `${this.$refs.listFadeItems.$el.offsetHeight}px`;
     },
   },
   mounted() {
@@ -116,16 +135,22 @@ export default {
 }
 
 .apartments-list__content {
+  transition: all .5s;
+}
+
+.apartments-list__items {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
     
 .apartments-list__item {
   display: flex;
+  position: relative;
+  width: 32.6%;
   margin: 0 1.57% 1.57% 0;
   padding: 0 1.57% 1.57% 0;
-  width: 32.6%;
-  position: relative;
+  transform: 1s;
 
   @include breakpoint($desktop-1200-1920) {
     margin: 0 1.57% 1.57% 0;
@@ -279,7 +304,9 @@ export default {
 .list-fade-enter-active, .list-fade-leave-active {
   transition: all 1.5s;
 }
+
 .list-fade-enter, .list-fade-leave-to {
   opacity: 0;
+  transform: translateY(-100px);
 }
 </style>
