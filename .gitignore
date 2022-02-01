@@ -23,6 +23,4 @@ pnpm-debug.log*
 *.sw?
 
 # local test files
-/src/components/apartments-list/_ApartmentsList.vue
-/src/data/testCompilation1.json
-/src/data/testCompilation2.json
+/src/test-data

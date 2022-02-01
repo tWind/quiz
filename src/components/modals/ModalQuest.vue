@@ -282,7 +282,7 @@ export default {
 }
 
 .popup__input-text {
-  user-select: auto;
+  user-select: auto !important; // improve iOS Safary bug
   @include default-text-input;
 }
 </style>
