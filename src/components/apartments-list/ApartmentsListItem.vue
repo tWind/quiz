@@ -1,5 +1,5 @@
 <template>
-  <div class="apartments-list-item">
+  <div class="apartments-list-item" @mousemove="mouseMoveHandler($event)">
     <div class="apartments-list-item__container">
       <div class="apartments-list-item__tags">
         <div v-for="tag in item.tags" :key="tag.index" class="apartments-list-item__tag">
@@ -42,16 +42,26 @@
           <div class="list-of-apartments__list-item-price">от&nbsp;12&nbsp;млн&nbsp;₽</div>
         </div>
       </div>
-      <img class="list-of-apartments__list-item-img" :src="itemBgUrl" />
+
+      <img class="apartments-list-item__bg" ref="itemBg" :src="itemBgUrl" />
     </div>
   </div>
 </template>
 
 <script>
-const BG_URL = 'https://liner.mirrors.dev.southmedia.ru';
+import _ from 'lodash';
+
+const BG_URL = 'https://liner.mirrors.dev.southmedia.ru',
+  ANIMATION_TIME = 1000;
 
 export default {
   name: 'ApartmentsListItem',
+  data() {
+    return {
+      oldX: 0,
+      currentImageNumber: 0,
+    }
+  },
   props: {
     item: {
       type: Object,
@@ -60,7 +70,42 @@ export default {
   },
   computed: {
     itemBgUrl() {
-      return `${BG_URL}${this.item.img[0]}`;
+      return `${BG_URL}${this.item.img[this.currentImageNumber]}`;
+    }
+  },
+  methods: {
+    mouseMoveHandler: _.debounce(function(e) {
+      let dir = 0;
+
+      if (e.pageX < this.oldX) {
+        dir = 1;
+      } else if (e.pageX > this.oldX) {
+        dir = -1;
+      }
+
+      this.oldX = e.pageX;
+
+      this.$refs.itemBg.style.opacity = 0;
+      
+      setTimeout(() => {
+        this.changeImage(dir);
+        this.$refs.itemBg.style.opacity = 1;
+      }, ANIMATION_TIME * 0.75);
+    }, ANIMATION_TIME),
+    changeImage(n) {
+      const limit = this.item.img.length;
+
+      if(this.currentImageNumber + n >= 0) {
+        if(this.currentImageNumber + n < limit) {
+          this.currentImageNumber = this.currentImageNumber + n;
+        } else {
+          this.currentImageNumber = 0;
+        }
+
+        return;
+      }
+
+      this.currentImageNumber = limit - 1;
     }
   }
 };
@@ -199,5 +244,21 @@ export default {
       }
     }
   }
+}
+
+.apartments-list-item__bg {
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0);
+  top: 50%;
+  left: 50%;
+  border-radius: 30px;
+  z-index: -1;
+  object-fit: cover;
+  transition: opacity 1s;
 }
 </style>

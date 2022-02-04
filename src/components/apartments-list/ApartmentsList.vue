@@ -3,6 +3,9 @@
     <div class="apartments-list__container">
       <h1 class="apartments-list__title">{{ appText.thanks.title }}</h1>
       <p class="apartments-list__descr">{{ appText.thanks.text }}</p>
+      <base-button @click="updateCompilation(flag ? testCompilation : testCompilation2)">
+        Обновить подборку
+      </base-button>
 
       <div class="list-of-apartments__list-wrapper">
         <div class="list-of-apartments__list-header">
@@ -20,15 +23,11 @@
           </div>
         </div>
 
-        <div class="apartments-list__content" :style="{ height: listContainerHeight }">
+        <div class="apartments-list__content">
           <transition-group class="apartments-list__items"
             tag="div"
             name="list-fade"
-            ref="listFadeItems"
             appear
-            @enter="setContainerHeight"
-            @before-leave="setContainerHeight"
-            @after-leave="setContainerHeight"
           > 
           <div class="apartments-list__item" v-for="object in objectsCompilation" :key="object.object_id">   
             <apartments-list-item :item="object" :key="object.object_id" />
@@ -43,6 +42,11 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex';
 
+
+import BaseButton from '@/components/ui/BaseButton.vue';
+import testCompilation from '@/test-data/testCompilation.json';
+import testCompilation2 from '@/test-data/testCompilation2.json';
+
 import ApartmentsListItem from './ApartmentsListItem';
 
 
@@ -51,6 +55,9 @@ export default {
   data() {
     return {
       listContainerHeight: 'auto',
+      testCompilation: testCompilation,
+      testCompilation2: testCompilation2,
+      flag: true,
     }
   },
   computed: {
@@ -75,17 +82,16 @@ export default {
       setTimeout(() => {
         this.setCompilation([...diffCompilation, ...compilation]);
       }, 500);
-    },
-    setContainerHeight() {
-      if(this.$refs.listFadeItems)
-        this.listContainerHeight = `${this.$refs.listFadeItems.$el.offsetHeight}px`;
+
+      this.flag = !this.flag;
     },
   },
   mounted() {
-    this.$socket.emit('join', this.socketChannel);
+    // this.$socket.emit('join', this.socketChannel);
   },
   components: {
     ApartmentsListItem,
+    BaseButton,
   },
 };
 </script>
